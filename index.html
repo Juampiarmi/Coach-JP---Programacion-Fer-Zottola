@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Coach JP — Performance Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --fire: #FF3D00; 
+    --fire-glow: #FF6D3A; 
+    --gold: #FFD600; 
+    --bg: #0A0A0B; 
+    --bg-card: #121214; 
+    --bg-card-hover: #1A1A1E; 
+    --bg-filter: #0F0F11; 
+    --text-primary: #F5F5F7; 
+    --text-secondary: #A0A0AA; 
+    --text-muted: #52525B; 
+    --border: rgba(255, 255, 255, 0.06); 
+    --border-active: rgba(255, 61, 0, 0.4); 
+    --radius-sm: 8px; 
+    --radius-md: 12px; 
+    --radius-lg: 16px; 
+    --radius-xl: 24px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  body { 
+    background: var(--bg); 
+    color: var(--text-primary); 
+    font-family: 'Inter', sans-serif; 
+    min-height: 100vh; 
+    font-size: 15px; 
+    line-height: 1.6; 
+    overflow-x: hidden; 
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: #27272A; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #3F3F46; }
+
+  nav { 
+    position: sticky; 
+    top: 0; 
+    z-index: 100; 
+    background: rgba(10, 10, 11, 0.8); 
+    backdrop-filter: blur(20px); 
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border); 
+    padding: 0 2rem; 
+    height: 65px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+  }
+
+  .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo-icon { 
+    width: 36px; 
+    height: 36px; 
+    background: linear-gradient(135deg, var(--fire), #FF1E00); 
+    border-radius: var(--radius-sm); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    flex-shrink: 0; 
+    box-shadow: 0 4px 12px rgba(255, 61, 0, 0.3);
+  }
+  .nav-logo-icon svg { width: 20px; height: 20px; fill: white; }
+  .nav-brand-text { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.5rem; letter-spacing: 0.04em; color: var(--text-primary); }
+  .nav-brand-text span { color: var(--fire); }
+  .nav-right { display: flex; align-items: center; gap: 10px; }
+  .nav-badge { background: rgba(255, 61, 0, 0.1); border: 1px solid rgba(255, 61, 0, 0.2); color: var(--fire-glow); font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.06em; text-transform: uppercase; }
+  
+  .hero { padding: 3rem 2rem 2.5rem; max-width: 1200px; margin: 0 auto; }
+  .hero-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--fire); margin-bottom: 0.75rem; }
+  .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.05; letter-spacing: 0.01em; margin-bottom: 1rem; }
+  .hero h1 em { font-style: normal; color: var(--fire); }
+  .hero-sub { color: var(--text-secondary); font-size: 1rem; max-width: 720px; margin-bottom: 1.5rem; }
+  .hero-stats { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
+  .stat-pill { display: flex; align-items: center; gap: 8px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 30px; padding: 8px 16px; font-size: 13px; color: var(--text-secondary); }
+  .stat-pill b { color: var(--text-primary); font-weight: 600; }
+  .stat-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--fire); }
+  
+  .mesociclo-box { background: rgba(124, 77, 255, 0.03); border: 1px solid rgba(124, 77, 255, 0.12); border-radius: var(--radius-lg); padding: 1.5rem; margin: 2rem auto 0; max-width: 1200px; font-size: 14px; color: var(--text-secondary); }
+  .mesociclo-box h3 { font-family: 'Barlow Condensed', sans-serif; color: #B39DDB; font-size: 1.3rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+  .mesociclo-box strong { color: var(--text-primary); }
+  .mesociclo-warning { margin-top: 1rem; padding: 10px 14px; background: rgba(255, 61, 0, 0.04); border-left: 3px solid var(--fire); border-radius: 4px; color: var(--text-primary); font-size: 13px; }
+
+  .filters-wrap { background: var(--bg-filter); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1rem 2rem; position: sticky; top: 65px; z-index: 90; overflow-x: auto; }
+  .filters-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 1rem; min-width: max-content; }
+  .filter-group { display: flex; align-items: center; gap: 0.5rem; }
+  .filter-label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); white-space: nowrap; }
+  .filter-sep { width: 1px; height: 20px; background: var(--border); margin: 0 0.5rem; flex-shrink: 0; }
+  .chip { background: rgba(255,255,255,0.02); border: 1px solid var(--border); color: var(--text-secondary); font-size: 13px; font-weight: 500; padding: 6px 14px; border-radius: 20px; cursor: pointer; white-space: nowrap; transition: all 0.2s ease; user-select: none; }
+  .chip:hover { border-color: rgba(255,61,0,0.3); color: var(--text-primary); background: rgba(255,61,0,0.04); }
+  .chip.active { background: rgba(255,61,0,0.12); border-color: var(--fire); color: var(--text-primary); font-weight: 600; }
+  
+  .grid-wrap { max-width: 1200px; margin: 0 auto; padding: 2rem 2rem 4rem; }
+  .grid-meta { font-size: 13px; color: var(--text-muted); margin-bottom: 1.25rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; }
+  .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; cursor: pointer; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; }
+  .card:hover { transform: translateY(-4px); border-color: rgba(255,61,0,0.25); background: var(--bg-card-hover); box-shadow: 0 12px 24px rgba(0,0,0,0.2); }
+  .card.completed { opacity: 0.45; filter: grayscale(40%); }
+  .card.rest-day-card { border-color: rgba(255,255,255,0.03); background: rgba(255,255,255,0.01); cursor: default; }
+  .card.rest-day-card:hover { transform: none; box-shadow: none; border-color: rgba(255,255,255,0.03); }
+  .card-accent { height: 4px; width: 100%; background: var(--fire); flex-shrink: 0; }
+  .card-accent.musculacion { background: linear-gradient(90deg, #7C4DFF, #651FFF); }
+  .card-accent.rest { background: linear-gradient(90deg, #27272A, #18181B); }
+  .card-body { padding: 1.5rem; flex: 1; pointer-events: none; }
+  .card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1rem; }
+  .tag { font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 4px 10px; border-radius: 6px; }
+  .tag-disc-musculacion { background: rgba(124,77,255,0.12); color: #B39DDB; }
+  .tag-level-avanzado { background: rgba(255,61,0,0.08); color: #FF6D3A; }
+  .tag-gender { background: rgba(255,255,255,0.04); color: var(--text-secondary); }
+  .tag-rest { background: rgba(39, 39, 42, 0.4); color: var(--text-secondary); }
+  .card h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.4rem; line-height: 1.2; margin-bottom: 0.5rem; color: var(--text-primary); }
+  .card-desc { font-size: 13.5px; color: var(--text-secondary); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .card-footer { padding: 1rem 1.5rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 10px; pointer-events: none; }
+  
+  .card-footer button { 
+    pointer-events: auto; 
+    background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid rgba(255, 255, 255, 0.08); 
+    color: var(--text-primary); 
+    padding: 6px 14px; 
+    border-radius: var(--radius-sm); 
+    font-size: 12px; 
+    font-weight: 600; 
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: all 0.2s ease;
+  }
+  .card-footer button:hover {
+    background: rgba(255, 61, 0, 0.15);
+    border-color: var(--fire);
+    color: #fff;
+  }
+  .card.completed .card-footer button { background: rgba(0, 137, 123, 0.15); border-color: rgba(0, 137, 123, 0.3); color: #4DB6AC; }
+  
+  .card-meta-info { display: flex; gap: 12px; }
+  .meta-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-muted); }
+  .meta-item svg { width: 14px; height: 14px; flex-shrink: 0; stroke: currentColor; }
+  
+  .overlay { display: none; position: fixed; inset: 0; background: rgba(5,5,6,0.85); z-index: 200; align-items: flex-end; justify-content: center; padding: 0; backdrop-filter: blur(8px); }
+  .overlay.open { display: flex; }
+  @media (min-width: 640px) { .overlay { align-items: center; padding: 2rem; } }
+  
+  .modal { 
+    background: #121214; 
+    border: 1px solid var(--border); 
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0; 
+    width: 100%; 
+    max-width: 800px; 
+    max-height: 85vh; 
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; 
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
+  }
+  @media (min-width: 640px) { .modal { border-radius: var(--radius-lg); max-height: 80vh; } }
+
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .modal-header { 
+    padding: 1.5rem; 
+    border-bottom: 1px solid var(--border); 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start;
+    background: #121214;
+    z-index: 10;
+    flex-shrink: 0; 
+  }
+  .modal-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.6rem; font-weight: 800; line-height: 1.1; }
+  .modal-close { 
+    background: rgba(255,255,255,0.04); 
+    border: 1px solid var(--border); 
+    color: var(--text-secondary); 
+    width: 32px; 
+    height: 32px; 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    cursor: pointer; 
+    transition: all 0.2s ease;
+  }
+  .modal-close:hover { background: rgba(255,255,255,0.1); color: var(--text-primary); }
+
+  .modal-body { 
+    padding: 1.5rem; 
+    overflow-y: auto; 
+    flex: 1;
+  }
+
+  .block { background: rgba(255,255,255,0.01); border: 1px solid var(--border); border-radius: var(--radius-md); margin-bottom: 1.5rem; overflow: hidden; }
+  .block-header { padding: 1rem 1.25rem; background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+  .block-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.2rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; }
+  .block-title.warmup { color: #FFD600; }
+  .block-title.main { color: var(--fire-glow); }
+  .block-title.metcon { color: #4DB6AC; }
+  .block-content { padding: 0.5rem 1.25rem; }
+
+  .exercise-row { display: flex; gap: 16px; padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,0.03); align-items: flex-start; justify-content: space-between; }
+  .exercise-row:last-child { border-bottom: none; }
+  .exercise-num { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; color: var(--text-muted); min-width: 20px; }
+  .exercise-title-container { display: flex; align-items: flex-start; gap: 12px; flex: 1; max-width: 70%; }
+  .exercise-name { font-weight: 600; font-size: 1rem; color: var(--text-primary); }
+  .exercise-name sub { display: block; font-size: 13px; color: var(--text-secondary); font-style: normal; margin-top: 6px; line-height: 1.5; font-family: 'Inter', sans-serif; }
+  .exercise-name sub b { color: var(--text-primary); }
+  .exercise-name .sub-block-title { display: inline-block; background: rgba(255, 61, 0, 0.1); border-left: 2px solid var(--fire); color: var(--fire-glow); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; padding: 1px 6px; border-radius: 0 4px 4px 0; margin-bottom: 6px; font-weight: 700; }
+  
+  .exercise-video-link { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: rgba(255, 61, 0, 0.08); border: 1px solid rgba(255, 61, 0, 0.2); border-radius: 6px; color: var(--fire-glow); transition: all 0.2s ease; flex-shrink: 0; cursor: pointer; margin-top: 2px; }
+  .exercise-video-link:hover { background: var(--fire); color: #fff; border-color: var(--fire); transform: translateY(-1px); }
+  .exercise-video-link svg { width: 12px; height: 12px; fill: currentColor; }
+
+  .exercise-detail { font-size: 13px; color: var(--text-secondary); text-align: right; max-width: 30%; line-height: 1.4; }
+  .exercise-detail b { display: block; color: var(--text-primary); font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+  
+  .modal-footer { padding: 1.25rem 1.5rem; border-top: 1px solid var(--border); display: flex; gap: 0.75rem; background: #121214; flex-shrink: 0; }
+  .btn-complete { flex: 1; background: var(--fire); color: white; border: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 12px 24px; border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s ease; }
+  .btn-complete:hover { background: #FF5722; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(255,61,0,0.2); }
+  .btn-complete.done { background: #00897B; }
+  .btn-complete.done:hover { background: #00796B; box-shadow: 0 4px 12px rgba(0,137,123,0.2); }
+  .btn-close-modal { background: rgba(255,255,255,0.04); color: var(--text-secondary); border: 1px solid var(--border); font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 1rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 12px 20px; border-radius: var(--radius-md); cursor: pointer; }
+  .btn-close-modal:hover { background: rgba(255,255,255,0.08); color: var(--text-primary); }
+
+  .empty { grid-column: 1 / -1; text-align: center; padding: 4rem 1rem; color: var(--text-muted); }
+  
+  @media (max-width: 640px) {
+    nav { padding: 0 1rem; }
+    .hero { padding: 2rem 1rem; }
+    .filters-wrap { padding: 0.75rem 1rem; top: 65px; }
+    .grid-wrap { padding: 1.5rem 1rem 3rem; }
+    .grid { grid-template-columns: 1fr; gap: 1rem; }
+    .exercise-row { flex-direction: column; gap: 12px; }
+    .exercise-title-container { max-width: 100%; min-width: 100%; }
+    .exercise-detail { text-align: left; max-width: 100%; min-width: 100%; border-top: 1px solid rgba(255,255,255,0.04); padding-top: 10px; }
+    .modal-footer { flex-direction: column; }
+    .btn-close-modal { order: 2; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="#">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 2L4.09 12.99 12 12.01 11 22l8.91-10.99-7.91.98z"/></svg>
+    </div>
+    <span class="nav-brand-text">COACH<span>&nbsp;JP</span></span>
+  </a>
+  <div class="nav-right"><span class="nav-badge" id="nav-badge-level">Cargando...</span></div>
+</nav>
+
+<section class="hero">
+  <p class="hero-eyebrow">Performance Hub — Alumna: <span id="student-name-text">Cargando...</span></p>
+  <div class="hero-title-container">
+    <h1 id="hero-title">Plan de Entrenamiento<br><em id="student-objective-text">Cargando...</em></h1>
+  </div>
+  <p class="hero-sub" id="hero-subtitle">Plan optimizado y diseñado por el <strong>Coach JP</strong> — Profesor de Educación Física, Especialista en alto rendimiento deportivo, Posgrado en ciencias del deporte (Freie Universität Berlin - Alemania).</p>
+  
+  <div class="hero-stats">
+    <div class="stat-pill"><div class="stat-dot"></div><b id="stat-count">0</b>&nbsp;rutinas programadas</div>
+    <div class="stat-pill"><div class="stat-dot" style="background:var(--gold)"></div><b>1</b>&nbsp;disciplina activa</div>
+    <div class="stat-pill"><div class="stat-dot" style="background:#B39DDB"></div><b id="stat-done">0</b>&nbsp;completadas</div>
+  </div>
+
+  <div class="mesociclo-box" id="mesociclo-content">
+    <h3>Estrategia General del Mesociclo: Piernas & Glúteos Extremo</h3>
+    <p>Este macro-bloque se organiza en un <strong>Mesociclo Pedagógico de 4 Semanas</strong> de alta frecuencia (FullBody enfocado) orientado a optimizar la recomposición corporal y maximizar la tensión en el tren inferior:</p>
+    <ul style="margin-top: 0.8rem; padding-left: 1.25rem; list-style-type: disc; color: var(--text-secondary); font-size:13.5px;">
+      <li><strong>Semana 1:</strong> Carga Base. Enfoque en control técnico estructural y establecimiento de marcas de referencia. RPE 7 -> 8. Cardio lineal estable.</li>
+      <li><strong>Semana 2:</strong> Pico Volumen. Adición de +1 serie en aislamiento estructural e intercalados activos. Menor tiempo de descanso metabólico. RPE 8-8.5.</li>
+      <li><strong>Semana 3:</strong> Pico Intensidad. Cargas pesadas máximas. Aplicación de series piramidales muy exigentes a RPE 9-9.5 para esculpir y tonificar.</li>
+      <li><strong>Semana 4:</strong> Descarga Activa. Consolidación adaptativa. Reducción drástica de series a la mitad (RPE 6). Se eliminan por completo los finishers calóricos.</li>
+    </ul>
+    <div class="mesociclo-warning" id="student-warning-box">
+      <strong>⚠️ Protocolo de Cuidados Especiales:</strong> <span id="student-injury-text">Ninguno reportado.</span>
+    </div>
+  </div>
+</section>
+
+<div class="filters-wrap">
+  <div class="filters-inner">
+    <span class="filter-label">Disciplina</span>
+    <div class="filter-group" id="filter-disc">
+      <div class="chip active" data-group="disc" data-val="all">Todas</div>
+      <div class="chip" data-group="disc" data-val="Musculación">Musculación</div>
+    </div>
+    <div class="filter-sep"></div>
+    <span class="filter-label">Foco de la Sesión</span>
+    <div class="filter-group" id="filter-level">
+      <div class="chip active" data-group="level" data-val="all">Todos los Días</div>
+    </div>
+  </div>
+</div>
+
+<div class="grid-wrap">
+  <p class="grid-meta" id="grid-meta"></p>
+  <div class="grid" id="grid"></div>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div class="modal-title-block">
+        <div class="card-tags" id="modal-tags"></div>
+        <div class="modal-title" id="modal-title"></div>
+      </div>
+      <button class="modal-close" id="modal-close" aria-label="Cerrar">&#x2715;</button>
+    </div>
+    <div class="modal-body" id="modal-body">
+      <div id="video-player-container" style="display:none; margin-bottom:16px; background:#000; border-radius:12px; overflow:hidden; border:1px solid var(--border);">
+         <iframe id="modal-video-frame" style="width:100%; height:360px; border:none;" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div id="modal-exercises-content"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-complete" id="btn-complete">Marcar como completado</button>
+      <button class="btn-close-modal" id="btn-close-modal">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const ATHLETE_CONFIG = {
+  name: "Fernanda Zóttola",
+  objective: "Esculpir Glúteos/Piernas Extremo & Recomposición Corporal",
+  levelBadge: "Intermedio - Regular",
+  specialCare: "Anotar con precisión las marcas reales obtenidas desde la Semana 1 hasta la Semana 4. Ejecutar las superseries y bloques metabólicos respetando estrictamente los tiempos de pausa pautados para forzar el vaciado de glucógeno."
+};
+
+document.getElementById('student-name-text').textContent = ATHLETE_CONFIG.name;
+document.getElementById('student-objective-text').textContent = ATHLETE_CONFIG.objective;
+document.getElementById('nav-badge-level').textContent = ATHLETE_CONFIG.levelBadge;
+document.getElementById('student-injury-text').textContent = ATHLETE_CONFIG.specialCare;
+
+const workouts = [
+  {
+    id: "dia-1",
+    title: "DÍA 1 – Glúteos Máximo & Cadena Posterior",
+    subtitle: "FullBody — Tensión Mecánica Extrema & Gasto Metabólico",
+    discipline: "Musculación",
+    disciplineSlug: "Musculación",
+    level: "Glúteos & Posterior",
+    levelSlug: "Gluteos_Posterior",
+    desc: "Enfoque severo en vectores axiales, aislamiento isquiosural y vaciado metabólico terminal.",
+    warmup: [
+      { name: "AMRAP 5 min: Activación Posterior Dinámica", video: "https://www.youtube.com/embed/ORO64L7Iz4w", sub: "Formato escalera ascendente: 2-4-6-8... repeticiones de Sentadillas libres fluidas, Russian Kettlebell Swings livianos y transiciones funcionales Walk-out.", reps: "AMRAP 5 min", detail: "<b>Ritmo: Fluido continuo</b><br>Descanso: Sin pausas estructurales" }
+    ],
+    main: [
+      { name: "Hip Thrust con Barra Pesada (o Máquina)", video: "https://www.youtube.com/embed/DQv1IMQDbE4", sub: "Tensión máxima en acortamiento. Clava escápulas en banco y empuja con talones bloqueando la pelvis arriba en retroversión. <b>Indicación de Intesidad:</b> ¡La última repetición de cada serie se sostiene 10 segundos arriba de forma isométrica + 10 rebotes cortos!", reps: "5 series x 12-10-10-8-8 reps", detail: "<b>RPE: 7 -> 8.5</b><br>Descanso: 120 segundos" },
+      { name: "Peso Muerto Rumano con Barra (RDL)", video: "https://www.youtube.com/embed/ZPeJ0s8X6Gs", sub: "Estiramiento bajo carga excéntrica de isquiotibiales y glúteo mayor. Empuja la cadera hacia atrás con la columna perfectamente rígida, deslizando la barra rozando tus piernas. <b>Interset Activo:</b> Intercalar inmediatamente con 20 repeticiones de Gemelos de pie con peso corporal.", reps: "4 series x 10-12 repeticiones", detail: "<b>RPE: 8</b><br>Descanso: 90 segundos" },
+      { name: "TRISERIE DE AISLAMIENTO ESTÉTICO EN POLEA Y MÁQUINA", video: "https://www.youtube.com/embed/dmSUVf4cle8", sub: "<span class='sub-block-title'>Estación 1</span> <b>Patada de Glúteo Estricta en Polea Baja:</b> 12-15 repeticiones controladas apretando atrás.<br><br><span class='sub-block-title'>Estación 2</span> <b>Abducción de Cadera en Máquina (Sentada):</b> 15-20 repeticiones buscando el fallo por estrés isquémico.<br><br><span class='sub-block-title'>Estación 3</span> <b>Gemelos Sentada en Máquina:</b> 20 repeticiones con rango completo de movimiento.", reps: "3-4 Rondas Completas", detail: "<b>Altas Repeticiones</b><br>Descanso: 60s tras ronda" }
+    ],
+    metcon: [
+      { name: "FINISHER QUEDAQUEMA CALÓRICO (OPCIONAL)", video: "https://www.youtube.com/embed/fuWq7fg74dc", sub: "<b>100 repeticiones totales de Farmer Lunges (Estocadas Caminando con Mancuernas).</b> Regla estricta: Si te ves obligada a soltar las mancuernas por fatiga antes de llegar a 100, debes ejecutar una penalización de 6 a 10 repeticiones de Jumping Lunges (Estocadas con salto) en el lugar antes de continuar.", reps: "100 Repeticiones", detail: "<b>Time Cap: 10 Minutos</b><br>S4: ELIMINADO" },
+      { name: "Corework Avanzado de Definición", video: "https://www.youtube.com/embed/Sq3TFsIyvuA", sub: "Circuito continuado sin pausa entre estaciones: 1. <b>12 Crunch en Polea Alta</b> con control excéntrico -> 2. <b>15 Hollow Rocks</b> gimnásticos estables -> 3. <b>20 Single Leg V-Ups</b> dinámicos alternando piernas.", reps: "3-4 Series", detail: "<b>Descanso: 45-60s</b><br>S3: Pausas a 30s" },
+      { name: "Cardio Quema Grasa Eficiente (Zona 2)", sub: "Caminata rápida con inclinación alta en cinta de correr. Mantén un ritmo cardiovascular constante e ininterrumpido donde te cueste hablar con fluidez pero puedas sostener el esfuerzo sin agitarte excesivamente.", reps: "15-20 Minutos", detail: "<b>Intensidad: Baja-Moderada</b><br>Oxidación lipídica" }
+    ],
+    technicalAnalysis: {
+      objectives: "Desarrollar tensión mecánica masiva en el glúteo mayor y estimular la hipertrofia por estiramiento de la cadena posterior.",
+      tips: "En el Hip Thrust, mantén la mirada al frente durante todo el recorrido para neutralizar la columna lumbar. En las estocadas finales, no golpees la rodilla trasera contra el suelo.",
+      strategies: "La progresión estratégica para la Semana 2 subirá a 6 series en Hip Thrust (RPE 9). En la Semana 3 se buscarán pirámides pesadas de (10-8-8-6-4) a RPE 9.5. Semana 4 baja a 3x10 RPE 6 sin finishers."
+    }
+  },
+  {
+    id: "rest-1",
+    title: "DÍA 2 – Descanso Activo / Recuperación",
+    subtitle: "Consolidación de Adaptaciones Musculares",
+    discipline: "Descanso",
+    disciplineSlug: "Descanso",
+    level: "Rest Day",
+    levelSlug: "Rest",
+    desc: "Día sin entrenamiento de fuerza. Prioriza una buena hidratación, ingesta proteica estable y camina entre 8k y 10k pasos ligeros.",
+    isRest: true
+  },
+  {
+    id: "dia-2",
+    title: "DÍA 3 – Cuádriceps & Empujes de Torso",
+    subtitle: "FullBody — Modelado Estructural Anterior & Firmeza de Brazos",
+    discipline: "Musculación",
+    disciplineSlug: "Musculación",
+    level: "Cuádriceps & Empujes",
+    levelSlug: "Cuadriceps_Empujes",
+    desc: "Estímulo de alta densidad en la cadena anterior del tren inferior combinado con tono y definición estricta en hombros y tríceps.",
+    warmup: [
+      { name: "AMRAP 5 min: Activación Anterior e Hombros", video: "https://www.youtube.com/embed/jjlekYs1cfQ", sub: "Formato escalera ascendente: 2-4-6-8... repeticiones de Sentadillas estilo sumo corporales fluidas, Push-ups (flexiones) inclinadas en banco y transiciones funcionales Walk-out.", reps: "AMRAP 5 min", detail: "<b>Ritmo: Fluido continuo</b>" }
+    ],
+    main: [
+      { name: "Sentadilla Libre Profunda o en Máquina Smith", video: "https://www.youtube.com/embed/zTvZtPzgmbI", sub: "Tensión mecánica masiva en cuádriceps y glúteos. Ejecuta una bajada controlada rompiendo el paralelo de las rodillas de forma segura. <b>Interset Activo:</b> Intercala inmediatamente al terminar cada serie con 10 repeticiones de Press en Paralelas de Torso.", reps: "5 series x 12-10-10-8-8 reps", detail: "<b>RPE: 7 -> 8.5</b><br>Descanso: 120 segundos" },
+      { name: "Bulgarian Split Squat con Mancuernas (Sentadilla Búlgara)", video: "https://www.youtube.com/embed/Iw1HZ3kKlYc", sub: "Trabajo unilateral severo para esculpir piernas de forma aislada. Mantén el torso erguido para maximizar el vector de flexión sobre la rodilla delantera y enfocar el cuádriceps. <b>Interset Activo:</b> Intercala inmediatamente con 12 Extensiones de Tríceps en Polea con agarre invertido.", reps: "4 series x 10-12 reps por pierna", detail: "<b>RPE: 8</b><br>Descanso: 90 segundos" },
+      { name: "TRISERIE ESTÉTICA DE HOMBROS & BRAZOS", video: "https://www.youtube.com/embed/k6tzKisR3NY", sub: "<span class='sub-block-title'>Estación 1</span> <b>Gorilla Bench Press con Mancuernas:</b> 12-14 repeticiones estables para tono pectoral y deltoides anterior.<br><br><span class='sub-block-title'>Estación 2</span> <b>Aperturas Cruzadas en Polea Alta:</b> 12-15 repeticiones aislando la porción superior del torso.<br><br><span class='sub-block-title'>Estación 3</span> <b>Extensión de Tríceps con Barra Plana en Polea:</b> 12-15 repeticiones de contracción rígida terminal.", reps: "3-4 Rondas Efectivas", detail: "<b>Control Biomecánico</b><br>Descanso: 60s tras ronda" }
+    ],
+    metcon: [
+      { name: "FINISHER METABÓLICO: PIERNAS DE ACERO (OPCIONAL)", video: "https://www.youtube.com/embed/wF1N48xFcdQ", sub: "Formato escalera ascendente cruzada: 2-4-6-8... repeticiones consecutivas de <b>Farmer Box Step Ups</b> (Subidas al cajón cargando mancuernas) combinadas con <b>Russian Kettlebell Swings</b> pesados con empuje potente de cadera.", reps: "AMRAP 7-10 Minutos", detail: "<b>Máxima Densidad</b><br>S4: NO SE HACE" },
+      { name: "Core: Resistencia y Control Recto Abdominal", video: "https://www.youtube.com/embed/IzJhfrGQsjY", sub: "<b>Completar 100 repeticiones totales de Hollow Flutter Kicks (Patadas de pingüino en posición Hollow).</b> Regla estricta: Cada vez que rompas la posición de platillo o te detengas por quemazón abdominal, debes pagar una penalización inmediata de 10 V-Ups completos antes de reanudar.", reps: "100 Repeticiones", detail: "<b>Time Cap: 10 Minutos</b><br>S4: 50 reps sin penalización" },
+      { name: "Cardio HIIT Interválico Metabólico (Bicicleta)", sub: "Estructura EMOM 10 minutos. Alternancia de potencia. <b>Minutos Pares:</b> 30 segundos de pedaleo suave de recuperación. <b>Minutos Impares:</b> 30 segundos de Sprint explosivo a máxima velocidad y resistencia controlada.", reps: "EMOM 10 Minutos", detail: "<b>Alta Intensidad (HIIT)</b><br>Eleva el VO2 Max" }
+    ],
+    technicalAnalysis: {
+      objectives: "Desencadenar una alta fatiga oclusiva y reclutamiento de fibras en cuádriceps, mejorando el perfil estético del hombro y brazos.",
+      tips: "En la Sentadilla Búlgara, cuida que la rodilla delantera no colapse hacia adentro (valgo); empújala levemente hacia afuera alineada con la punta del pie.",
+      strategies: "La programación de la Semana 2 aumentará el volumen a 6 series en sentadillas (último RPE 9). Semana 3 aplicará 5x10-8-6 pesadas con cargas máximas de fuerza."
+    }
+  },
+  {
+    id: "rest-2",
+    title: "DÍA 4 – Descanso Activo / Recuperación",
+    subtitle: "Consolidación de Adaptaciones Musculares",
+    discipline: "Descanso",
+    disciplineSlug: "Descanso",
+    level: "Rest Day",
+    levelSlug: "Rest",
+    desc: "Día sin entrenamiento de fuerza. Prioriza una buena hidratación, ingesta proteica estable y camina entre 8k y 10k pasos ligeros.",
+    isRest: true
+  },
+  {
+    id: "dia-3",
+    title: "DÍA 5 – Tracciones, Glúteo Medio & Postura",
+    subtitle: "FullBody — Efecto Óptico V-Taper & Redondez Lateral de Cadera",
+    discipline: "Musculación",
+    disciplineSlug: "Musculación",
+    level: "Tracciones & Postura",
+    levelSlug: "Tracciones_Postura",
+    desc: "Enfoque biomecánico en la amplitud dorsal para estilizar de forma visual la cintura, junto con estimulación focalizada de glúteo medio.",
+    warmup: [
+      { name: "AMRAP 5 min: Activación de Tracciones y Cadera", video: "https://www.youtube.com/embed/eQBjIHP5d3I", sub: "Formato escalera ascendente: 2-4-6-8... repeticiones de Remo inclinado con barra liviana, Cuban Press dinámico para manguito rotador y Glute Bridges corporales.", reps: "AMRAP 5 min", detail: "<b>Ritmo: Fluido continuo</b>" }
+    ],
+    main: [
+      { name: "Zancadas Inversas con Mancuernas (Reverse Lunges DB)", video: "https://www.youtube.com/embed/P5W2mvm1aGE", sub: "Máxima elongación muscular unilateral del glúteo. Da un paso largo hacia atrás e inclina sutilmente el torso hacia adelante manteniendo la espalda neutra y compacta. <b>Interset Activo:</b> Al terminar cada pierna, realiza inmediatamente 10 Dominadas Asistidas en máquina.", reps: "4 series x 10-12 reps por pierna", detail: "<b>RPE: 7 -> 8.5</b><br>Descanso: 120 segundos" },
+      { name: "Lat Pull Down en Polea Alta (Tirón Dorsal)", video: "https://www.youtube.com/embed/4XTcecic_Fg", sub: "Fortalecer la musculatura de la espalda alta para generar el efecto óptico V-Taper. Tracciona llevando la barra hacia el pecho guiando el movimiento con los codos hacia abajo. <b>Interset Activo:</b> Intercalar inmediatamente con 10 repeticiones por lado de Remo Unilateral Neutro.", reps: "4 series x 10-12 repeticiones", detail: "<b>RPE: 8</b><br>Descanso: 90 segundos" },
+      { name: "TRISERIE ESPALDA ALTA & REDONDEZ LATERAL DE CADERA", video: "https://www.youtube.com/embed/IeOqdw9WI90", sub: "<span class='sub-block-title'>Estación 1</span> <b>Face Pull en Polea Alta con Soga:</b> 12-15 repeticiones enfocadas en deltoides posterior y postura escapular.<br><br><span class='sub-block-title'>Estación 2</span> <b>Monster Walks Laterales con Banda Elástica:</b> 15-20 pasos por lado manteniendo tensión constante en el glúteo medio.<br><br><span class='sub-block-title'>Estación 3</span> <b>Curl de Bíceps Tipo Martillo con Mancuernas:</b> 10-15 repeticiones controlando la bajada.", reps: "3-4 Rondas Completas", detail: "<b>Estética Completa</b><br>Descanso: 60s tras ronda" }
+    ],
+    metcon: [
+      { name: "FINISHER DE REMATE: ESCULPIENDO CADERAS (OPCIONAL)", video: "https://www.youtube.com/embed/hSrV6f4Ey4Y", sub: "<b>Esquema descendente de alta densidad: 18-15-12-9 repeticiones</b> sin descanso entre ejercicios. Estaciones cruzadas: 1. <b>Lateral Kicks en Polea Baja</b> (Abducción de cadera de pie para glúteo medio) + 2. <b>Frog Hip Thrust</b> con disco pesado sobre la pelvis en el suelo.", reps: "Reps decrecientes", detail: "<b>Estímulo Láctico Puro</b><br>S4: ELIMINADO" },
+      { name: "Corework Cintura de Avispa", video: "https://www.youtube.com/embed/7oPUAVy-NZs", sub: "Circuito cerrado de estabilidad oblicua profunda sin hipertrofiar ni ensanchar la zona media: 1. <b>12 Rodillas al Pecho colgada</b> en barra -> 2. <b>30 Russian Twists</b> controlados con disco liviano -> 3. <b>30 segundos de Sostén Isométrico L-Sit</b> (o flexión en paralelas).", reps: "3-4 Sets Completos", detail: "<b>Descanso: 45-60s</b>" },
+      { name: "Cardio Intervalos de Alta Potencia (Rower / Remo)", sub: "Gasto calórico elevado involucrando tracción de cuerpo completo en máquina de remo. Estructura: Inicializa con 3 minutos de ritmo suave de calentamiento. Luego alterna: 1 minuto de tracción fuerte a máxima potencia por 1 minuto de recuperación fluida.", reps: "12-15 Minutos", detail: "<b>Intensidad: Variable</b><br>Gasto calórico extremo" }
+    ],
+    technicalAnalysis: {
+      objectives: "Maximizar el desarrollo del glúteo medio para rellenar los rangos laterales de la cadera y mejorar la alineación postural superior.",
+      tips: "En las estocadas inversas, mantén la presión del pie delantero firmemente distribuida en el talón para evitar que el estímulo migre exclusivamente al cuádriceps.",
+      strategies: "Durante la Semana 3, el bloque principal mutará hacia cargas muy pesadas buscando rangos de 8-10 repeticiones. Semana 4 aplicará descarga estratégica."
+    }
+  }
+];
+
+let completedWorkouts = JSON.parse(localStorage.getItem('jp_completed_v3')) || [];
+
+window.playModalVideo = function(url) {
+  const container = document.getElementById('video-player-container');
+  const iframe = document.getElementById('modal-video-frame');
+  if (iframe && container) {
+    iframe.src = url;
+    container.style.display = 'block';
+    container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+};
+
+function renderFilters() {
+  const levels = [...new Set(workouts.map(w => w.level))];
+  const filterLevelContainer = document.getElementById('filter-level');
+  
+  filterLevelContainer.innerHTML = '<div class="chip active" data-group="level" data-val="all">Todos los Días</div>';
+  
+  levels.forEach(lvl => {
+    const matchingWorkout = workouts.find(w => w.level === lvl);
+    const slug = matchingWorkout ? matchingWorkout.levelSlug : lvl.replace(/\s+/g, '_');
+    const chip = document.createElement('div');
+    chip.className = 'chip';
+    chip.setAttribute('data-group', 'level');
+    chip.setAttribute('data-val', slug);
+    chip.textContent = lvl;
+    filterLevelContainer.appendChild(chip);
+  });
+  
+  document.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', function() {
+      const group = this.getAttribute('data-group');
+      document.querySelectorAll(`.chip[data-group="${group}"]`).forEach(c => c.classList.remove('active'));
+      this.classList.add('active');
+      filterGrid();
+    });
+  });
+}
+
+function filterGrid() {
+  const discVal = document.querySelector('.chip[data-group="disc"].active').getAttribute('data-val');
+  const levelVal = document.querySelector('.chip[data-group="level"].active').getAttribute('data-val');
+  
+  let filtered = workouts;
+  
+  if (discVal !== 'all') {
+    filtered = filtered.filter(w => w.disciplineSlug === discVal);
+  }
+  if (levelVal !== 'all') {
+    filtered = filtered.filter(w => w.levelSlug === levelVal);
+  }
+  
+  renderGrid(filtered);
+}
+
+function renderGrid(data) {
+  const grid = document.getElementById('grid');
+  const meta = document.getElementById('grid-meta');
+  grid.innerHTML = '';
+  
+  const realWorkoutsCount = workouts.filter(w => !w.isRest).length;
+  document.getElementById('stat-count').textContent = realWorkoutsCount;
+  document.getElementById('stat-done').textContent = completedWorkouts.length;
+  
+  if (data.length === 0) {
+    grid.innerHTML = `
+      <div class="empty">
+        <h3>No se encontraron rutinas asignadas</h3>
+        <p>Modifica los filtros de navegación superiores.</p>
+      </div>`;
+    meta.textContent = "Mostrando 0 rutinas";
+    return;
+  }
+  
+  meta.textContent = `Mostrando ${data.length} de ${workouts.length} días en el cronograma`;
+  
+  data.forEach(w => {
+    const isCompleted = completedWorkouts.includes(w.id);
+    const card = document.createElement('div');
+    
+    if (w.isRest) {
+      card.className = "card rest-day-card";
+      card.innerHTML = `
+        <div class="card-accent rest"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-rest">Descanso Activo</span>
+            <span class="tag tag-gender">Femenino</span>
+          </div>
+          <h2>${w.title}</h2>
+          <p class="card-desc" style="-webkit-line-clamp: 3;"><b>${w.subtitle}</b> — ${w.desc}</p>
+        </div>
+        <div class="card-footer" style="border-top: 1px solid rgba(255,255,255,0.02);">
+          <div class="card-meta-info">
+            <div class="meta-item">
+              <span>Recuperación Consolidada</span>
+            </div>
+          </div>
+        </div>
+      `;
+    } else {
+      card.className = `card ${isCompleted ? 'completed' : ''}`;
+      card.setAttribute('data-id', w.id);
+      card.innerHTML = `
+        <div class="card-accent musculacion"></div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-disc-musculacion">${w.discipline}</span>
+            <span class="tag tag-level-avanzado">${w.level}</span>
+            <span class="tag tag-gender">Femenino</span>
+          </div>
+          <h2>${w.title}</h2>
+          <p class="card-desc"><b>${w.subtitle}</b> — ${w.desc}</p>
+        </div>
+        <div class="card-footer">
+          <div class="card-meta-info">
+            <div class="meta-item">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              <span>Reproductor Nativo Integrado</span>
+            </div>
+          </div>
+          <button>${isCompleted ? 'Completado ✓' : 'Ver Rutina'}</button>
+        </div>
+      `;
+      card.addEventListener('click', function() {
+        openModal(w);
+      });
+    }
+    
+    grid.appendChild(card);
+  });
+}
+
+function openModal(w) {
+  if (w.isRest) return;
+  
+  const overlay = document.getElementById('overlay');
+  const title = document.getElementById('modal-title');
+  const tags = document.getElementById('modal-tags');
+  const bodyContent = document.getElementById('modal-exercises-content');
+  const btnComplete = document.getElementById('btn-complete');
+  
+  const videoContainer = document.getElementById('video-player-container');
+  const videoFrame = document.getElementById('modal-video-frame');
+  if (videoFrame && videoContainer) {
+    videoFrame.src = "";
+    videoContainer.style.display = 'none';
+  }
+  
+  title.innerHTML = `${w.title}<br><span style="font-size:14px; font-family:'Inter'; font-weight:400; color:var(--text-secondary);">${w.subtitle}</span>`;
+  tags.innerHTML = `
+    <span class="tag tag-disc-musculacion">${w.discipline}</span>
+    <span class="tag tag-level-avanzado">${w.level}</span>
+  `;
+  
+  let html = '';
+  
+  const getExerciseRow = (ex, idx) => {
+    let videoButtonHtml = '';
+    if (ex.video) {
+      videoButtonHtml = `
+        <div onclick="window.playModalVideo('${ex.video}'); event.stopPropagation();" class="exercise-video-link" title="Ver video en reproductor interno">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      `;
+    }
+    return `
+      <div class="exercise-row">
+        <div class="exercise-num">${idx + 1}</div>
+        <div class="exercise-title-container">
+          <div class="exercise-name">${ex.name}<sub>${ex.sub}</sub></div>
+          ${videoButtonHtml}
+        </div>
+        <div class="exercise-detail"><b>${ex.reps}</b>${ex.detail ? ex.detail : ''}</div>
+      </div>
+    `;
+  };
+  
+  if (w.warmup && w.warmup.length > 0) {
+    html += `
+      <div class="block">
+        <div class="block-header">
+          <div class="block-title warmup">🔥 Warm Up / Activación Biomecánica (5 min)</div>
+        </div>
+        <div class="block-content">
+    `;
+    w.warmup.forEach((ex, idx) => { html += getExerciseRow(ex, idx); });
+    html += `</div></div>`;
+  }
+  
+  if (w.main && w.main.length > 0) {
+    html += `
+      <div class="block">
+        <div class="block-header">
+          <div class="block-title main">🏋️‍♂️ Fuerza Axial / Estímulo Mecánico Central</div>
+        </div>
+        <div class="block-content">
+    `;
+    w.main.forEach((ex, idx) => { html += getExerciseRow(ex, idx); });
+    html += `</div></div>`;
+  }
+  
+  if (w.metcon && w.metcon.length > 0) {
+    html += `
+      <div class="block">
+        <div class="block-header">
+          <div class="block-title metcon">⏱️ Bloque de Densidad MetCon / Escudo Core / Remates</div>
+        </div>
+        <div class="block-content">
+    `;
+    w.metcon.forEach((ex, idx) => { html += getExerciseRow(ex, idx); });
+    html += `</div></div>`;
+  }
+
+  if (w.technicalAnalysis) {
+    html += `
+      <div class="block" style="border: 1px dashed rgba(124,77,255,0.3); background: rgba(124,77,255,0.01);">
+        <div class="block-header">
+          <div class="block-title" style="color: #B39DDB;">📋 Análisis Detallado e Indicaciones del Coach</div>
+        </div>
+        <div class="block-content" style="font-size: 13.5px; color: var(--text-secondary); padding: 1rem 0;">
+          <p style="margin-bottom: 0.75rem;"><strong>🎯 Objetivos del Bloque:</strong> ${w.technicalAnalysis.objectives}</p>
+          <p style="margin-bottom: 0.75rem;"><strong>💡 Tips Técnicos:</strong> ${w.technicalAnalysis.tips}</p>
+          <p><strong>⚡ Estrategia de Periodización:</strong> ${w.technicalAnalysis.strategies}</p>
+        </div>
+      </div>
+    `;
+  }
+  
+  bodyContent.innerHTML = html;
+  
+  if (completedWorkouts.includes(w.id)) {
+    btnComplete.textContent = "Sesión Completada ✓";
+    btnComplete.classList.add('done');
+  } else {
+    btnComplete.textContent = "Marcar como completado";
+    btnComplete.classList.remove('done');
+  }
+  
+  btnComplete.onclick = (e) => {
+    e.stopPropagation();
+    if (completedWorkouts.includes(w.id)) {
+      completedWorkouts = completedWorkouts.filter(id => id !== w.id);
+      btnComplete.textContent = "Marcar como completado";
+      btnComplete.classList.remove('done');
+    } else {
+      completedWorkouts.push(w.id);
+      btnComplete.textContent = "Sesión Completada ✓";
+      btnComplete.classList.add('done');
+    }
+    localStorage.setItem('jp_completed_v3', JSON.stringify(completedWorkouts));
+    filterGrid();
+  };
+  
+  overlay.classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('overlay').classList.remove('open');
+  const iframe = document.getElementById('modal-video-frame');
+  if (iframe) iframe.src = "";
+}
+
+document.getElementById('modal-close').addEventListener('click', closeModal);
+document.querySelectorAll('.btn-close-modal').forEach(btn => btn.addEventListener('click', closeModal));
+document.getElementById('overlay').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+renderFilters();
+filterGrid();
+</script>
+</body>
+</html>
