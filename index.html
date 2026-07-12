@@ -106,18 +106,14 @@
   .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; cursor: pointer; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; }
   .card:hover { transform: translateY(-4px); border-color: rgba(255,61,0,0.25); background: var(--bg-card-hover); box-shadow: 0 12px 24px rgba(0,0,0,0.2); }
   .card.completed { opacity: 0.45; filter: grayscale(40%); }
-  .card.rest-day-card { border-color: rgba(255,255,255,0.03); background: rgba(255,255,255,0.01); cursor: default; }
-  .card.rest-day-card:hover { transform: none; box-shadow: none; border-color: rgba(255,255,255,0.03); }
   .card-accent { height: 4px; width: 100%; background: var(--fire); flex-shrink: 0; }
   .card-accent.musculacion { background: linear-gradient(90deg, #7C4DFF, #651FFF); }
-  .card-accent.rest { background: linear-gradient(90deg, #27272A, #18181B); }
   .card-body { padding: 1.5rem; flex: 1; pointer-events: none; }
   .card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1rem; }
   .tag { font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 4px 10px; border-radius: 6px; }
   .tag-disc-musculacion { background: rgba(124,77,255,0.12); color: #B39DDB; }
   .tag-level-avanzado { background: rgba(255,61,0,0.08); color: #FF6D3A; }
   .tag-gender { background: rgba(255,255,255,0.04); color: var(--text-secondary); }
-  .tag-rest { background: rgba(39, 39, 42, 0.4); color: var(--text-secondary); }
   .card h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.4rem; line-height: 1.2; margin-bottom: 0.5rem; color: var(--text-primary); }
   .card-desc { font-size: 13.5px; color: var(--text-secondary); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
   .card-footer { padding: 1rem 1.5rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 10px; pointer-events: none; }
@@ -276,13 +272,13 @@
   </div>
 
   <div class="mesociclo-box" id="mesociclo-content">
-    <h3>Estrategia General del Mesociclo: Hipertrofia y Recomposición Estructural</h3>
-    <p>Este macro-bloque se organiza en un <strong>Mesociclo Pedagógico de 4 Semanas</strong> de alta frecuencia y densidad, diseñado bajo el diagnóstico de que la alumna se encuentra en niveles de adiposidad óptimos para priorizar el aumento estricto de masa muscular y fuerza localizada:</p>
+    <h3>Estrategia General del Mesociclo: Hipertrofia y Ganancia de Masa Muscular</h3>
+    <p>Este macro-bloque se organiza en un <strong>Mesociclo Pedagógico de 4 Semanas</strong> de alta frecuencia y densidad, diseñado bajo el diagnóstico de que te encontrás en niveles de grasa óptimos para enfocarte de lleno en el aumento de masa muscular limpia y la fuerza localizada de forma directa:</p>
     <ul style="margin-top: 0.8rem; padding-left: 1.25rem; list-style-type: disc; color: var(--text-secondary); font-size:13.5px;">
-      <li><strong>Semana 1:</strong> Establecimiento de carga base. Enfoque en control del tempo, rangos biomecánicos limpios y marcas de referencia iniciales (RPE 6-7).</li>
-      <li><strong>Semana 2:</strong> Sobrecarga progresiva por volumen. Incremento moderado en las cargas o adición selectiva de series efectivas manteniendo pausas estables (RPE 7-8).</li>
-      <li><strong>Semana 3:</strong> Pico de volumen e intensidad máxima. Aplicación terminal de técnicas de intensificación (isometrías avanzadas, parciales en elongación y fallos metabólicos). RPE 9-9.5.</li>
-      <li><strong>Semana 4:</strong> Descarga activa controlada. Reducción drástica del volumen de series a la mitad y remoción de los finishers metabólicos. Intensidad moderada (RPE 6) para consolidar las adaptaciones del tejido muscular y blando.</li>
+      <li><strong>Semana 1:</strong> Control técnico y marcas de referencia. Buscamos ajustar el tempo, cuidar los rangos biomecánicos limpios y fijar las cargas iniciales a intensidades controladas (RPE 6-7).</li>
+      <li><strong>Semana 2:</strong> Sobrecarga progresiva por volumen. Incrementamos de forma moderada los pesos en los bloques principales o sumamos series efectivas manteniendo los descansos pautados estables (RPE 7-8).</li>
+      <li><strong>Semana 3:</strong> Pico de volumen e intensidad máxima. Aplicación a fondo de técnicas avanzadas como isometrías extendidas, repeticiones parciales en elongación y series llevadas al fallo técnico (RPE 9-9.5).</li>
+      <li><strong>Semana 4:</strong> Descarga activa controlada. Reducimos el volumen de series a la mitad y sacamos los finishers de vaciado metabólico. Entrenamos a intensidad moderada (RPE 6) para consolidar las adaptaciones articulares y del tejido muscular.</li>
     </ul>
     <div class="mesociclo-warning" id="student-warning-box">
       <strong>⚠️ Protocolo de Cuidados Especiales:</strong> <span id="student-injury-text">Ninguno reportado.</span>
@@ -337,7 +333,7 @@ const ATHLETE_CONFIG = {
   name: "Fernanda Zóttola",
   objective: "Hipertrofia Muscular y Modelado Estético Localizado",
   levelBadge: "Intermedio - Regular",
-  specialCare: "La alumna llegó a niveles de adiposidad óptimos para centrarse únicamente en el aumento de masa muscular limpia. Entrenará de 3 a 4 veces por semana. Registrar marcas reales de carga semana tras semana."
+  specialCare: "Alcanzaste niveles de grasa óptimos para centrarte solo en el aumento de masa muscular limpia. Programación configurada para entrenar de 3 a 4 veces por semana. Es clave registrar las marcas reales obtenidas set a set."
 };
 
 document.getElementById('student-name-text').textContent = ATHLETE_CONFIG.name;
@@ -356,16 +352,16 @@ const workouts = [
     levelSlug: "Empujes_Triceps",
     desc: "Alta tensión mecánica inicial en empuje horizontal seguida de triseries metabólicas de aislamiento.",
     warmup: [
-      { name: "Warm Up / Activación Biomecánica Específica", video: "", sub: "Activación articular de la cintura escapulohumeral (manguito rotador, pro-retracción escapular). Series de aproximación ligeras previas al press plano.", reps: "5 Minutos", detail: "<b>Ritmo fluido</b>" }
+      { name: "Warm Up / Calentamiento Específico", video: "", sub: "Activación articular dirigida a la cintura escapulohumeral (manguito rotador, pro-retracción escapular) junto con series de aproximación lineales previas al press plano.", reps: "5 Minutos", detail: "<b>Ritmo fluido</b>" }
     ],
     main: [
-      { name: "Press de Pecho Plano", video: "", sub: "Controlar el descenso. Al completar las repeticiones asignadas, sostener la barra arriba de forma isométrica fija durante 10 segundos y realizar inmediatamente máximas repeticiones (Fallo Técnico).", reps: "4 series x 7-10 reps", detail: "<b>Iso-Hold: 10'' + Max Reps</b><br>Descanso: 120 segundos" },
-      { name: "SUPER SERIE METABÓLICA INCLINADA Y EXTENSIÓN", video: "", sub: "<span class='sub-block-title'>A1</span> <b>Press de Pecho Inclinado con Mancuernas:</b> 8 a 10 repeticiones estrictas.<br><br><span class='sub-block-title'>A2</span> <b>Press Palmar Inclinado con Disco:</b> 15 repeticiones juntando con fuerza las palmas contra las caras del disco.<br><br><span class='sub-block-title'>A3</span> <b>Tríceps en Polea con Barra Triangular:</b> 12 a 15 repeticiones extendiendo codos a fondo.", reps: "3-4 Rondas Completas", detail: "<b>Sin pausas internas</b><br>Descanso post ronda" }
+      { name: "Press de Pecho Plano", video: "", sub: "Controlar el descenso de la barra. Al completar las repeticiones pautadas, sostener de forma isométrica arriba durante 10 segundos y realizar inmediatamente máximas repeticiones posibles hasta el fallo técnico.", reps: "4 series x 7-10 reps", detail: "<b>Iso-Hold: 10'' + Max Reps</b><br>Descanso: 2 minutos" },
+      { name: "SUPER SERIE METABÓLICA INCLINADA Y EXTENSIÓN", video: "", sub: "<span class='sub-block-title'>A1</span> <b>Press de Pecho Inclinado con Mancuernas:</b> 8 a 10 repeticiones estrictas.<br><br><span class='sub-block-title'>A2</span> <b>Press Palmar Inclinado con Disco:</b> 15 repeticiones empujando las palmas con fuerza contra el disco.<br><br><span class='sub-block-title'>A3</span> <b>Tríceps en Polea con Barra Triangular:</b> 12 a 15 repeticiones extendiendo los codos por completo.", reps: "3-4 Rondas Completas", detail: "<b>Sin pausas internas</b><br>Descanso al terminar la ronda" }
     ],
     metcon: [
-      { name: "TRISERIE DE AISLAMIENTO Y FATIGA ACUMULADA", video: "", sub: "<span class='sub-block-title'>B1</span> <b>Aperturas en Polea Alta con Soporte:</b> 12-15 repeticiones localizadas.<br><br><span class='sub-block-title'>B2</span> <b>Tríceps Invertidos en Polea:</b> 12-15 reps. Con barra plana, codos se extienden sobre la cabeza con el torso semi-paralelo al piso.<br><br><span class='sub-block-title'>B3</span> <b>Fondos Asistidos o en Máquina de Fondos:</b> 1 serie al máximo esfuerzo mecánico de un solo tiro.", reps: "3-4 Rondas Completas", detail: "<b>B3 RPE: 6-7</b><br>Descanso post ronda" },
-      { name: "Tríceps & Grip Finisher Terminal", video: "", sub: "<span class='sub-block-title'>Estación A</span> <b>Tríceps sobre la cabeza tras nuca con cuerda:</b> Formato piramidal descendente de reps (15-14-13-12-11-10) subiendo la carga de la polea en cada serie.<br><br><span class='sub-block-title'>Estación B</span> <b>Press Francés:</b> Con barra W, mancuernas o barra plana a elección. Ejecutar inmediatamente tras la cuerda.<br><br><span class='sub-block-title'>Estación C</span> <b>Agarre de discos con dedos (Pinch Grip Hold):</b> Sostener 30 segundos activos de pinza con 2 discos de 5 a 10 kg tras cada set.", reps: "Bucle Descendente", detail: "<b>Pinch Hold: 30''</b>" },
-      { name: "Corework: Trabajo de Núcleo Isométrico", video: "", sub: "Completar 2 a 3 minutos acumulados netos en posición de plancha isométrica rígida. Regla estricta: Cada vez que la fatiga te obligue a cortar la posición, detén el cronómetro y realiza 30 repeticiones de Russian Twist con disco (15 por lado) antes de volver a entrar a la plancha.", reps: "2-3 Minutos Netos", detail: "<b>Penalización: 30 Twists</b>" }
+      { name: "TRISERIE DE AISLAMIENTO Y FATIGA ACUMULADA", video: "", sub: "<span class='sub-block-title'>B1</span> <b>Aperturas en Polea Alta con Soporte:</b> 12-15 repeticiones localizadas.<br><br><span class='sub-block-title'>B2</span> <b>Tríceps Invertidos en Polea:</b> 12-15 reps. Con barra plana, extendiendo los codos sobre la cabeza con el torso semi-paralelo al suelo.<br><br><span class='sub-block-title'>B3</span> <b>Fondos Asistidos o en Máquina de Fondos:</b> 1 serie llevada al máximo esfuerzo mecánico de un solo tiro.", reps: "3-4 Rondas Completas", detail: "<b>B3 RPE: 6-7</b><br>Descanso al finalizar la ronda" },
+      { name: "Tríceps & Grip Finisher Terminal", video: "", sub: "<span class='sub-block-title'>Estación A</span> <b>Tríceps sobre la cabeza tras nuca con cuerda:</b> Formato piramidal descendente (15-14-13-12-11-10) subiendo el peso de la polea en cada serie.<br><br><span class='sub-block-title'>Estación B</span> <b>Press Francés:</b> Ejecutado con barra W, mancuernas o barra plana a elección de forma inmediata tras terminar la cuerda.<br><br><span class='sub-block-title'>Estación C</span> <b>Agarre de discos con dedos (Pinch Grip Hold):</b> Sostener 30 segundos activos de pinza con 2 discos de 5 a 10 kg al terminar cada serie.", reps: "Bucle Descendente", detail: "<b>Pinch Hold: 30''</b>" },
+      { name: "Corework: Trabajo de Núcleo Isométrico", video: "", sub: "Completar de 2 a 3 minutos netos acumulados en posición de plancha isométrica rígida. Regla estricta: Cada vez que la fatiga te obligue a cortar la posición, frená el cronómetro y realizá 30 repeticiones de Russian Twist con disco (15 por lado) antes de reanudar.", reps: "2-3 Minutos Netos", detail: "<b>Penalización: 30 Twists</b>" }
     ],
     technicalAnalysis: {
       objectives: "Generar una alta tensión mecánica inicial en el plano horizontal del pectoral, seguida de una acumulación masiva de estrés metabólico mediante superseries en ángulos inclinados y un vaciado terminal de los extensores del codo (tríceps).",
@@ -374,19 +370,8 @@ const workouts = [
     }
   },
   {
-    id: "rest-1",
-    title: "DÍA 2 – Descanso Activo / Recuperación",
-    subtitle: "Consolidación de Adaptaciones Musculares",
-    discipline: "Descanso",
-    disciplineSlug: "Descanso",
-    level: "Rest Day",
-    levelSlug: "Rest",
-    desc: "Día sin entrenamiento de fuerza. Prioriza una buena hidratación, ingesta proteica estable y camina entre 8k y 10k pasos ligeros.",
-    isRest: true
-  },
-  {
     id: "dia-2",
-    title: "DÍA 3 – Dominancia de Cadera & Estímulo de Cuádriceps",
+    title: "DÍA 2 – Dominancia de Cadera & Estímulo de Cuádriceps",
     subtitle: "FullBody — Variantes Dinámicas Complementarias (1 1/4)",
     discipline: "Musculación",
     disciplineSlug: "Musculación",
@@ -394,17 +379,17 @@ const workouts = [
     levelSlug: "Cuadriceps_Gluteos",
     desc: "Alta carga en vectores verticales de piernas alternada con sobrecarga unilateral excéntrica pesada.",
     warmup: [
-      { name: "Warm Up / Aproximaciones y Reconocimiento", video: "", sub: "Movilidad lumbopélvica profunda, aproximaciones lineales progresivas para la sentadilla trasera.", reps: "5 Minutos", detail: "<b>Activación articular</b>" }
+      { name: "Warm Up / Aproximaciones y Reconocimiento", video: "", sub: "Movilidad lumbopélvica profunda y series de aproximación lineales progresivas para la sentadilla trasera.", reps: "5 Minutos", detail: "<b>Activación articular</b>" }
     ],
     main: [
-      { name: "Sentadilla Trasera con Barra (Back Squat 1 1/4)", video: "https://www.youtube.com/embed/dW3zj79xfrc", sub: "La repetición 1 1/4 implica bajar completo rompiendo el paralelo, subir un cuarto del recorrido controlado, volver a bajar a fondo y realizar de inmediato la extensión completa.", reps: "10-8-6-6-4 reps", detail: "<b>RPE: 6 -> 9 (Carga Asc)</b><br>Descanso: 2-3 minutos" },
-      { name: "SUPER SERIE DE SOBRECARGA EXCÉNTRICA ANTERIOR", video: "", sub: "<span class='sub-block-title'>B1</span> <b>Curl de Cuádriceps en Sillón:</b> 20-18-16-14 repeticiones construyendo carga pesada set a set.<br><br><span class='sub-block-title'>B2</span> <b>Sissy Squat Excéntricos:</b> 10 repeticiones estrictas corporales. Frenar la bajada contando 3 segundos controlados, subir potente en 1 segundo.", reps: "4 Series Efectivas", detail: "<b>B2 Tempo: 3.0.1.0</b><br>Descanso: 90 segundos" },
-      { name: "Hip Thrust con Barra o Máquina (Técnica 1 1/4)", video: "https://www.youtube.com/embed/CvuVYMFd11g", sub: "Calentar bien y comenzar directo con una carga desafiante. Ejecutar cada repetición con el cuarto de rebote controlado en la parte alta de contracción máxima.", reps: "Series de 15 a 10 reps", detail: "<b>Carga Desafiante</b><br>Descanso: 90-120 segundos" }
+      { name: "Sentadilla Trasera con Barra (Back Squat 1 1/4)", video: "https://www.youtube.com/embed/dW3zj79xfrc", sub: "La repetición 1 1/4 implica bajar completo rompiendo el paralelo, subir un cuarto del recorrido controlado, volver a bajar a fondo y realizar de inmediato la extensión completa hasta arriba.", reps: "10-8-6-6-4 reps", detail: "<b>RPE: 6 -> 9 (Carga Asc)</b><br>Descanso: 2-3 minutos" },
+      { name: "SUPER SERIE DE SOBRECARGA EXCÉNTRICA ANTERIOR", video: "", sub: "<span class='sub-block-title'>B1</span> <b>Curl de Cuádriceps en Sillón:</b> 20-18-16-14 repeticiones construyendo carga pesada serie a serie.<br><br><span class='sub-block-title'>B2</span> <b>Sissy Squat Excéntricos:</b> 10 repeticiones estrictas corporales. Frenar la bajada contando 3 segundos controlados y subir potente en 1 segundo.", reps: "4 Series Efectivas", detail: "<b>B2 Tempo: 3.0.1.0</b><br>Descanso: 90 segundos" },
+      { name: "Hip Thrust con Barra o Máquina (Técnica 1 1/4)", video: "https://www.youtube.com/embed/CvuVYMFd11g", sub: "Calentar bien y arrancar directo con una carga desafiante. Ejecutar cada repetición con el cuarto de rebote controlado justo en la parte alta de contracción máxima.", reps: "Series de 15 a 10 reps", detail: "<b>Carga Desafiante</b><br>Descanso: 90-120 segundos" }
     ],
     metcon: [
       { name: "SUPERSERIE MULTIDIRECCIONAL DE GLÚTEOS", video: "", sub: "<span class='sub-block-title'>C1</span> <b>Kickbacks en Polea Baja (Patada Trasera):</b> 12 repeticiones controladas por cada lado.<br><br><span class='sub-block-title'>C2</span> <b>Lateral Kicks en Polea (Patada Lateral):</b> 12 repeticiones estrictas por cada pierna.", reps: "3 Rondas Completas", detail: "<b>Pausa: 2 min al terminar C2</b>" },
-      { name: "Finisher Isquémico: Remate Cuádriceps y Glúteos", video: "", sub: "Completar 3 minutos acumulados netos en posición estática de Puente de Glúteos (Glute Bridge) sosteniendo un peso firme sobre la pelvis. Regla estricta: Cada vez que la fatiga te obligue a bajar la cadera, detén el cronómetro y ejecuta de inmediato 10 repeticiones dinámicas de Hip Thrust con ese mismo peso antes de volver a sostener arriba.", reps: "3 Minutos Netos", detail: "<b>RPE: 6.5 / 10 Hip Thrusts</b>" },
-      { name: "Corework: Circuito de Control Opcional Recomendado", video: "", sub: "Completar rondas continuas descendentes de: 1. <b>V-Ups (Abdominales en V)</b> alternando de forma dinámica a una sola pierna -> 2. <b>Abmat Sit-Ups</b> manteniendo un disco contra tu pecho.", reps: "40-30-20-10 reps", detail: "<b>Escalera descendente</b>" }
+      { name: "Finisher Isquémico: Remate Cuádriceps y Glúteos", video: "", sub: "Completar 3 minutos acumulados netos en posición estática de Puente de Glúteos (Glute Bridge) sosteniendo un peso firme sobre la pelvis. Regla estricta: Cada vez que la fatiga te obligue a bajar la cadera, frená el cronómetro y ejecutá de inmediato 10 repeticiones dinámicas de Hip Thrust con ese mismo peso antes de volver a sostener arriba.", reps: "3 Minutos Netos", detail: "<b>RPE: 6.5 / 10 Hip Thrusts</b>" },
+      { name: "Corework: Circuito de Control Abdominal Recomendado", video: "", sub: "Completar rondas continuas descendentes de: 1. <b>V-Ups (Abdominales en V)</b> alternando de forma dinámica a una sola pierna -> 2. <b>Abmat Sit-Ups</b> manteniendo un disco contra tu pecho.", reps: "40-30-20-10 reps", detail: "<b>Escalera descendente</b>" }
     ],
     technicalAnalysis: {
       objectives: "Generar un estímulo de fuerza e hipertrofia estructural combinando variantes dinámicas complejas (1 1/4) tanto en vectores verticales (cuádriceps) como horizontales (glúteos), maximizando el daño muscular controlado y el bombeo sanguíneo.",
@@ -413,19 +398,8 @@ const workouts = [
     }
   },
   {
-    id: "rest-2",
-    title: "DÍA 4 – Descanso Activo / Recuperación",
-    subtitle: "Consolidación de Adaptaciones Musculares",
-    discipline: "Descanso",
-    disciplineSlug: "Descanso",
-    level: "Rest Day",
-    levelSlug: "Rest",
-    desc: "Día sin entrenamiento de fuerza. Prioriza una buena hidratación, ingesta proteica estable y camina entre 8k y 10k pasos ligeros.",
-    isRest: true
-  },
-  {
     id: "dia-3",
-    title: "DÍA 5 – Tracciones Dorsales & Modelado de Hombros",
+    title: "DÍA 3 – Tracciones Dorsales & Modelado de Hombros",
     subtitle: "FullBody — Efecto V-Taper de Espalda y Amplitud Escapular",
     discipline: "Musculación",
     disciplineSlug: "Musculación",
@@ -433,16 +407,16 @@ const workouts = [
     levelSlug: "Tracciones_Hombros",
     desc: "Volumen acumulado de tracciones estrictas combinado con modelado lateral y posterior del deltoides.",
     warmup: [
-      { name: "Warm Up / Activación Escapulotorácica (5 min)", video: "", sub: "Tracciones ligeras en polea alta, activaciones de manguito rotador y movilidad glenohumeral fluida.", reps: "5 Minutos", detail: "<b>Ritmo controlado</b>" }
+      { name: "Warm Up / Activación Escapulotorácica", video: "", sub: "Tracciones ligeras en polea alta, activaciones específicas de manguito rotador y movilidad glenohumeral fluida.", reps: "5 Minutos", detail: "<b>Ritmo controlado</b>" }
     ],
     main: [
-      { name: "Jalón al Pecho con Toma Neutra", video: "https://www.youtube.com/embed/W2x6zP9k7SM", sub: "Construyendo carga de forma pesada y progresiva set a set. <b>Interset Activo:</b> Realizar inmediatamente 10 repeticiones por lado de Jalones Unilaterales en polea alta con agarre prono.", reps: "20-18-16-14 reps", detail: "<b>Interset: 10/10 Prono</b><br>Descanso: 90 segundos" },
-      { name: "Dominadas Asistidas (Bandas o Máquina)", video: "https://www.youtube.com/embed/BOqrRMjxkj8", sub: "Ejecutadas con agarre prono estricto controlando la fase excéntrica. <b>Interset Activo:</b> Inmediatamente al soltar la barra, realizar 12 Vuelos Laterales en máquina sentada.", reps: "4 series x 5-7 reps", detail: "<b>Interset: 12 Vuelos RPE 7</b><br>Descanso: 120 segundos" },
-      { name: "SUPER SERIE DE EMPUJE HOMBROS Y TRACCIÓN HORIZONTAL", video: "", sub: "<span class='sub-block-title'>C1</span> <b>Press de Hombro Sentada con Mancuernas:</b> 18-16-14-12 repeticiones incrementando el peso.<br><br><span class='sub-block-title'>C2</span> <b>Remo Unilateral con Mancuerna:</b> 8 repeticiones estrictas por lado de forma controlada (10 a 15 kg).<br><br><span class='sub-block-title'>C3</span> <b>Bíceps Martillo:</b> 30 segundos continuos a máximo esfuerzo mecánico (2 mancuernas de 4 a 6 kg).", reps: "4 Series de Densidad", detail: "<b>C3: 30'' Max Effort</b><br>Descanso: 90 segundos" }
+      { name: "Jalón al Pecho con Toma Neutra", video: "https://www.youtube.com/embed/W2x6zP9k7SM", sub: "Construyendo carga de forma pesada y progresiva serie a serie. <b>Interset Activo:</b> Realizar inmediatamente 10 repeticiones por lado de Jalones Unilaterales en polea alta con agarre prono.", reps: "20-18-16-14 reps", detail: "<b>Interset: 10/10 Prono</b><br>Descanso: 90 segundos" },
+      { name: "Dominadas Asistidas (Bandas o Máquina)", video: "https://www.youtube.com/embed/BOqrRMjxkj8", sub: "Ejecutadas con agarre prono estricto controlando al máximo la fase excéntrica de bajada. <b>Interset Activo:</b> Inmediatamente al soltar la barra, realizar 12 Vuelos Laterales en máquina sentada.", reps: "4 series x 5-7 reps", detail: "<b>Interset: 12 Vuelos RPE 7</b><br>Descanso: 120 segundos" },
+      { name: "SUPER SERIE DE EMPUJE HOMBROS Y TRACCIÓN HORIZONTAL", video: "", sub: "<span class='sub-block-title'>C1</span> <b>Press de Hombro Sentada con Mancuernas:</b> 18-16-14-12 repeticiones incrementando el peso de forma lineal.<br><br><span class='sub-block-title'>C2</span> <b>Remo Unilateral con Mancuerna:</b> 8 repeticiones estrictas por lado de forma controlada (10 a 15 kg).<br><br><span class='sub-block-title'>C3</span> <b>Bíceps Martillo:</b> 30 segundos continuos a máximo esfuerzo mecánico (2 mancuernas de 4 a 6 kg).", reps: "4 Series de Densidad", detail: "<b>C3: 30'' Max Effort</b><br>Descanso: 90 segundos" }
     ],
     metcon: [
       { name: "TRISERIE POSTURAL Y REMATE ESTÉTICO FINAL", video: "", sub: "<span class='sub-block-title'>D1</span> <b>Vuelos Posteriores desde Polea Alta:</b> 12 a 15 repeticiones cruzadas utilizando el soporte para fijar el torso. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/IeOqdw9WI90')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Vuelos</a><br><br><span class='sub-block-title'>D2</span> <b>Remo en T (T-Bar Row):</b> 12 a 15 repeticiones pesadas enfocadas en la densidad de la espalda alta.<br><br><span class='sub-block-title'>D3</span> <b>Curl de Bíceps Supino con Mancuernas:</b> 12 a 15 repeticiones de pie, rotando desde el costado neutro hacia una supinación total. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/fM0TQLoesLs')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Curl</a>", reps: "3-4 Rondas Completas", detail: "<b>Pausa: 2 min al terminar D3</b>" },
-      { name: "Corework: Resistencia Abdominal en Escalera", video: "", sub: "Completar la secuencia en circuito descendente sin detenerse: 1. <b>Sit-Ups en Máquina Inclinada</b> (Añadir peso opcional contra tu pecho) -> 2. <b>Leg Raises</b> (Elevaciones de piernas colgada o en banco) -> 3. <b>Hollow Rocks</b> manteniendo la zona lumbar aplanada.", reps: "21-18-15-12-9-6 reps", detail: "<b>Circuito Integrado</b>" }
+      { name: "Corework: Resistencia Abdominal en Escalera", video: "", sub: "Completar la secuencia en circuito descendente sin detenerse: 1. <b>Sit-Ups en Máquina Inclinada</b> (Añadir peso opcional contra el pecho) -> 2. <b>Leg Raises</b> (Elevaciones de piernas colgada o en banco) -> 3. <b>Hollow Rocks</b> manteniendo la zona lumbar aplanada.", reps: "21-18-15-12-9-6 reps", detail: "<b>Circuito Integrado</b>" }
     ],
     technicalAnalysis: {
       objectives: "Priorizar el desarrollo del dorsal ancho y de la porción lateral y posterior del deltoides para generar un efecto estético de proporción corporal armónica (proporción en V que estiliza la zona media), junto con el acondicionamiento funcional de los flexores del brazo.",
@@ -451,19 +425,8 @@ const workouts = [
     }
   },
   {
-    id: "rest-3",
-    title: "DÍA 6 – Descanso Activo / Recuperación",
-    subtitle: "Consolidación de Adaptaciones Musculares",
-    discipline: "Descanso",
-    disciplineSlug: "Descanso",
-    level: "Rest Day",
-    levelSlug: "Rest",
-    desc: "Día sin entrenamiento de fuerza. Prioriza una buena hidratación, ingesta proteica estable y camina entre 8k y 10k pasos ligeros.",
-    isRest: true
-  },
-  {
     id: "dia-4",
-    title: "DÍA 7 – Isquios en Elongación & Sección de Sóleos",
+    title: "DÍA 4 – Isquios en Elongación & Sección de Sóleos",
     subtitle: "FullBody — Estiramiento de Cadena Posterior y Trabajo Abdominal",
     discipline: "Musculación",
     disciplineSlug: "Musculación",
@@ -471,16 +434,16 @@ const workouts = [
     levelSlug: "Isquios_Abdomen",
     desc: "Estímulo excéntrico profundo en isquiotibiales libre de cargas axiales y aislamiento analítico de pantorrillas.",
     warmup: [
-      { name: "Warm Up / Bisagra de Cadera y Descompresión", video: "", sub: "Activación dinámica de la bisagra de cadera con bastón o banda. Descompresión controlada de la zona lumbar y estiramiento dinámico de flexores.", reps: "5 Minutos", detail: "<b>Series de aprox. en RDL</b>" }
+      { name: "Warm Up / Bisagra de Cadera y Descompresión", video: "", sub: "Activación dinámica de la bisagra de cadera con bastón o banda elástica. Descompresión controlada de la zona lumbar y estiramiento dinámico de flexores.", reps: "5 Minutos", detail: "<b>Series de aprox. en RDL</b>" }
     ],
     main: [
-      { name: "Peso Muerto Rumano con Mancuernas Pesadas (Deficit RDL)", video: "https://www.youtube.com/embed/2MWhf_vG0Vw", sub: "Al llegar a la parte baja de máximo estiramiento muscular, sostener una pausa isométrica estricta de 2 segundos antes de subir explosiva. Al terminar la serie, realizar inmediatamente un sostén de 15 segundos apretando glúteos arriba.", reps: "4 series x 8-10 reps", detail: "<b>Pausa Iso: 2'' + 15'' Hold</b><br>Descanso: 120 segundos" },
-      { name: "SUPER SERIE DE AISLAMIENTO ISQUIOSURAL E ISQUEMIA", video: "", sub: "<span class='sub-block-title'>B1</span> <b>Curl Femoral Acostada (Leg Curl):</b> 10 a 12 reps controladas rango completo. Al fallar, realizar inmediatamente de 6 a 8 reps parciales desde la fase baja de estiramiento.<br><br><span class='sub-block-title'>B2</span> <b>Buenos Días Sentada con Barra o Disco:</b> 15 repeticiones controlando el descenso en 3 segundos estrictos para máximo estímulo aductor.", reps: "3-4 Rondas Completas", detail: "<b>B1: Completas + Parciales</b><br>Descanso: post vueltas" },
-      { name: "SUPER SERIE DE GLÚTEO Y TRÍCEPS SURAL", video: "", sub: "<span class='sub-block-title'>C1</span> <b>Frog Pumps en el suelo:</b> 20 a 25 repeticiones continuas buscando la máxima congestión muscular localizada.<br><br><span class='sub-block-title'>C2</span> <b>Elevación de Talones de Pie en Step (Gemelos):</b> 15 repeticiones controladas. Pausa de 2 segundos abajo estirando y 2 segundos arriba apretando.<br><br><span class='sub-block-title'>C3</span> <b>Caminata Lateral de Bombero con Banda Elástica:</b> Desplazamientos laterales continuos en los pies hasta el fallo por fatiga acumulada.", reps: "3-4 Rondas Completas", detail: "<b>C3 Intensidad: RPE 7</b><br>Descanso post ronda" }
+      { name: "Peso Muerto Rumano con Mancuernas Pesadas (Deficit RDL)", video: "https://www.youtube.com/embed/2MWhf_vG0Vw", sub: "Al llegar a la parte baja de máximo estiramiento muscular, sostener una pausa de forma isométrica estricta de 2 segundos antes de iniciar la subida explosiva. Al terminar la serie, realizar inmediatamente un sostén de 15 segundos apretando los glúteos arriba.", reps: "4 series x 8-10 reps", detail: "<b>Pausa Iso: 2'' + 15'' Hold</b><br>Descanso: 120 segundos" },
+      { name: "SUPER SERIE DE AISLAMIENTO ISQUIOSURAL E ISQUEMIA", video: "", sub: "<span class='sub-block-title'>B1</span> <b>Curl Femoral Acostada (Leg Curl):</b> 10 a 12 reps controladas a rango completo. Al fallar, realizar de inmediato de 6 a 8 reps parciales cortas desde la fase baja de estiramiento.<br><br><span class='sub-block-title'>B2</span> <b>Buenos Días Sentada con Barra o Disco:</b> 15 repeticiones controlando el descenso en 3 segundos estrictos para máximo estímulo aductor.", reps: "3-4 Rondas Completas", detail: "<b>B1: Completas + Parciales</b><br>Descanso al terminar las vueltas" },
+      { name: "SUPER SERIE DE GLÚTEO Y TRÍCEPS SURAL", video: "", sub: "<span class='sub-block-title'>C1</span> <b>Frog Pumps en el suelo:</b> 20 a 25 repeticiones continuas buscando la máxima congestión muscular localizada.<br><br><span class='sub-block-title'>C2</span> <b>Elevación de Talones de Pie en Step (Gemelos):</b> 15 repeticiones controladas. Pausa de 2 segundos abajo estirando y 2 segundos arriba apretando.<br><br><span class='sub-block-title'>C3</span> <b>Caminata Lateral de Bombero con Banda Elástica:</b> Desplazamientos laterales continuos con la banda en los pies hasta llegar al fallo por fatiga acumulada.", reps: "3-4 Rondas Completas", detail: "<b>C3 Intensidad: RPE 7</b><br>Descanso post ronda" }
     ],
     metcon: [
-      { name: "Finisher Analítico: Cadera Lateral y Sóleos", video: "", sub: "<span class='sub-block-title'>F1</span> <b>Patadas de Glúteo Laterales en Polea Baja (Lateral Kicks):</b> Trabajo de redondez lateral de cadera. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/tSNl_R9qgfE')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Lateral</a><br><br><span class='sub-block-title'>F2</span> <b>Elevación de Talones Sentada en Máquina (Sóleos):</b> <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/VjyxtvgyimE')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Sóleos</a><br><br><span class='sub-block-title'>F3 Intermedio</span> <b>Elevaciones de talones sin peso en Step:</b> Realizar inmediatamente 45 segundos dinámicos continuos de pie tras terminar los sóleos.", reps: "20-18-16-14-12 reps", detail: "<b>Formato decreciente</b>" },
-      { name: "Corework: Flexión Inversa y Control Estático", video: "", sub: "Estructura de volumen acumulado por series fijas consecutivas sin pausa intermedia: 1. <b>Elevaciones de Pelvis en Banco Inclinado (Reverse Crunches):</b> 15 repeticiones estrictas despegando el coxis lento de forma controlada. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/Gtv_pe0E42U')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Reverse</a> -> 2. <b>Plancha Lateral Isométrica rígida:</b> Sostener 30 segundos por cada lado (Añadir carga opcional recomendada para fuerza interna). <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/zs0LzKj4HWw')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Plancha</a>.", reps: "4 Series Rígidas", detail: "<b>Descanso: 45s entre rondas</b>" }
+      { name: "Finisher Analítico: Cadera Lateral y Sóleos", video: "", sub: "<span class='sub-block-title'>F1</span> <b>Patadas de Glúteo Laterales en Polea Baja (Lateral Kicks):</b> Trabajo de redondez lateral de cadera. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/tSNl_R9qgfE')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Lateral</a><br><br><span class='sub-block-title'>F2</span> <b>Elevación de Talones Sentada en Máquina (Sóleos):</b> <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/VjyxtvgyimE')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Sóleos</a><br><br><span class='sub-block-title'>F3 Intermedio</span> <b>Elevaciones de talones sin peso en Step:</b> Realizar inmediatamente 45 segundos dinámicos continuos de pie tras terminar los sóleos sin bajarse del step.", reps: "20-18-16-14-12 reps", detail: "<b>Formato decreciente</b>" },
+      { name: "Corework: Flexión Inversa y Control Estático", video: "", sub: "Estructura de volumen acumulado por series fijas consecutivas sin pausa intermedia: 1. <b>Elevaciones de Pelvis en Banco Inclinado (Reverse Crunches):</b> 15 repeticiones estrictas despegando el coxis lento de forma controlada. <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/Gtv_pe0E42U')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Reverse</a> -> 2. <b>Plancha Lateral Isométrica rígida:</b> Sostener 30 segundos por cada lado (Se puede sumar carga opcional recomendada para mayor estabilidad). <a onclick=\"window.playModalVideo('https://www.youtube.com/embed/zs0LzKj4HWw')\" style='color:var(--fire-glow); text-decoration:underline; cursor:pointer;'>Ver Video Plancha</a>.", reps: "4 Series Rígidas", detail: "<b>Descanso: 45s entre rondas</b>" }
     ],
     technicalAnalysis: {
       objectives: "Maximizar la hipertrofia de la cadena posterior mediante la tensión bajo estiramiento de los isquiotibiales, consolidar la activación analítica de los flexores y abductores de cadera (glúteo medio/mayor) y acumular volumen de trabajo metabólico en las diferentes porciones del tríceps sural (gemelos y sóleos).",
@@ -564,60 +527,38 @@ function renderGrid(data) {
     return;
   }
   
-  meta.textContent = `Mostrando ${data.length} de ${workouts.length} días en el cronograma`;
+  meta.textContent = `Mostrando ${data.length} de ${workouts.length} días programados`;
   
   data.forEach(w => {
     const isCompleted = completedWorkouts.includes(w.id);
     const card = document.createElement('div');
     
-    if (w.isRest) {
-      card.className = "card rest-day-card";
-      card.innerHTML = `
-        <div class="card-accent rest"></div>
-        <div class="card-body">
-          <div class="card-tags">
-            <span class="tag tag-rest">Descanso Activo</span>
-            <span class="tag tag-gender">Femenino</span>
-          </div>
-          <h2>${w.title}</h2>
-          <p class="card-desc" style="-webkit-line-clamp: 3;"><b>${w.subtitle}</b> — ${w.desc}</p>
+    card.className = `card ${isCompleted ? 'completed' : ''}`;
+    card.setAttribute('data-id', w.id);
+    card.innerHTML = `
+      <div class="card-accent musculacion"></div>
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="tag tag-disc-musculacion">${w.discipline}</span>
+          <span class="tag tag-level-avanzado">${w.level}</span>
+          <span class="tag tag-gender">Femenino</span>
         </div>
-        <div class="card-footer" style="border-top: 1px solid rgba(255,255,255,0.02);">
-          <div class="card-meta-info">
-            <div class="meta-item">
-              <span>Recuperación Consolidada</span>
-            </div>
+        <h2>${w.title}</h2>
+        <p class="card-desc"><b>${w.subtitle}</b> — ${w.desc}</p>
+      </div>
+      <div class="card-footer">
+        <div class="card-meta-info">
+          <div class="meta-item">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <span>Reproductor Nativo Integrado</span>
           </div>
         </div>
-      `;
-    } else {
-      card.className = `card ${isCompleted ? 'completed' : ''}`;
-      card.setAttribute('data-id', w.id);
-      card.innerHTML = `
-        <div class="card-accent musculacion"></div>
-        <div class="card-body">
-          <div class="card-tags">
-            <span class="tag tag-disc-musculacion">${w.discipline}</span>
-            <span class="tag tag-level-avanzado">${w.level}</span>
-            <span class="tag tag-gender">Femenino</span>
-          </div>
-          <h2>${w.title}</h2>
-          <p class="card-desc"><b>${w.subtitle}</b> — ${w.desc}</p>
-        </div>
-        <div class="card-footer">
-          <div class="card-meta-info">
-            <div class="meta-item">
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-              <span>Reproductor Nativo Integrado</span>
-            </div>
-          </div>
-          <button>${isCompleted ? 'Completado ✓' : 'Ver Rutina'}</button>
-        </div>
-      `;
-      card.addEventListener('click', function() {
-        openModal(w);
-      });
-    }
+        <button>${isCompleted ? 'Completado ✓' : 'Ver Rutina'}</button>
+      </div>
+    `;
+    card.addEventListener('click', function() {
+      openModal(w);
+    });
     
     grid.appendChild(card);
   });
@@ -672,7 +613,7 @@ function openModal(w) {
     html += `
       <div class="block">
         <div class="block-header">
-          <div class="block-title warmup">🔥 Warm Up / Activación Biomecánica (5 min)</div>
+          <div class="block-title warmup">🔥 Warm Up / Calentamiento Específico (5 min)</div>
         </div>
         <div class="block-content">
     `;
