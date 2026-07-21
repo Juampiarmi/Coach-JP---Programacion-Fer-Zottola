@@ -7,67 +7,63 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --fire: #FF3D00; 
-    --fire-glow: #FF6D3A; 
-    --gold: #FFD600; 
-    --bg: #0A0A0B; 
-    --bg-card: #121214; 
-    --bg-card-hover: #1A1A1E; 
-    --bg-filter: #0F0F11; 
-    --text-primary: #F5F5F7; 
-    --text-secondary: #A0A0AA; 
-    --text-muted: #52525B; 
-    --border: rgba(255, 255, 255, 0.06); 
-    --border-active: rgba(255, 61, 0, 0.4); 
-    --radius-sm: 8px; 
-    --radius-md: 12px; 
-    --radius-lg: 16px; 
+    --fire: #FF3D00;
+    --fire-glow: #FF6D3A;
+    --gold: #FFD600;
+    --bg: #0A0A0B;
+    --bg-card: #121214;
+    --bg-card-hover: #1A1A1E;
+    --bg-filter: #0F0F11;
+    --text-primary: #F5F5F7;
+    --text-secondary: #A0A0AA;
+    --text-muted: #52525B;
+    --border: rgba(255, 255, 255, 0.06);
+    --border-active: rgba(255, 61, 0, 0.4);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
     --radius-xl: 24px;
   }
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  
-  body { 
-    background: var(--bg); 
-    color: var(--text-primary); 
-    font-family: 'Inter', sans-serif; 
-    min-height: 100vh; 
-    font-size: 15px; 
-    line-height: 1.6; 
-    overflow-x: hidden; 
+
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
   }
-
   ::-webkit-scrollbar { width: 8px; height: 8px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: #27272A; border-radius: 4px; }
   ::-webkit-scrollbar-thumb:hover { background: #3F3F46; }
-
-  nav { 
-    position: sticky; 
-    top: 0; 
-    z-index: 100; 
-    background: rgba(10, 10, 11, 0.8); 
-    backdrop-filter: blur(20px); 
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 10, 11, 0.8);
+    backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border); 
-    padding: 0 2rem; 
-    height: 65px; 
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between; 
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
-
   .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-  .nav-logo-icon { 
-    width: 36px; 
-    height: 36px; 
-    background: linear-gradient(135deg, var(--fire), #FF1E00); 
-    border-radius: var(--radius-sm); 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    flex-shrink: 0; 
+  .nav-logo-icon {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--fire), #FF1E00);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
     box-shadow: 0 4px 12px rgba(255, 61, 0, 0.3);
   }
   .nav-logo-icon svg { width: 20px; height: 20px; fill: white; }
@@ -75,7 +71,7 @@
   .nav-brand-text span { color: var(--fire); }
   .nav-right { display: flex; align-items: center; gap: 10px; }
   .nav-badge { background: rgba(255, 61, 0, 0.1); border: 1px solid rgba(255, 61, 0, 0.2); color: var(--fire-glow); font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.06em; text-transform: uppercase; }
-  
+
   .hero { padding: 3rem 2rem 2.5rem; max-width: 1200px; margin: 0 auto; }
   .hero-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--fire); margin-bottom: 0.75rem; }
   .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.05; letter-spacing: 0.01em; margin-bottom: 1rem; }
@@ -85,12 +81,11 @@
   .stat-pill { display: flex; align-items: center; gap: 8px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 30px; padding: 8px 16px; font-size: 13px; color: var(--text-secondary); }
   .stat-pill b { color: var(--text-primary); font-weight: 600; }
   .stat-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--fire); }
-  
+
   .mesociclo-box { background: rgba(124, 77, 255, 0.03); border: 1px solid rgba(124, 77, 255, 0.12); border-radius: var(--radius-lg); padding: 1.5rem; margin: 2rem auto 0; max-width: 1200px; font-size: 14px; color: var(--text-secondary); }
   .mesociclo-box h3 { font-family: 'Barlow Condensed', sans-serif; color: #B39DDB; font-size: 1.3rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.75rem; letter-spacing: 0.05em; }
   .mesociclo-box strong { color: var(--text-primary); }
   .mesociclo-warning { margin-top: 1rem; padding: 10px 14px; background: rgba(255, 61, 0, 0.04); border-left: 3px solid var(--fire); border-radius: 4px; color: var(--text-primary); font-size: 13px; }
-
   .filters-wrap { background: var(--bg-filter); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1rem 2rem; position: sticky; top: 65px; z-index: 90; overflow-x: auto; }
   .filters-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 1rem; min-width: max-content; }
   .filter-group { display: flex; align-items: center; gap: 0.5rem; }
@@ -99,7 +94,7 @@
   .chip { background: rgba(255,255,255,0.02); border: 1px solid var(--border); color: var(--text-secondary); font-size: 13px; font-weight: 500; padding: 6px 14px; border-radius: 20px; cursor: pointer; white-space: nowrap; transition: all 0.2s ease; user-select: none; }
   .chip:hover { border-color: rgba(255,61,0,0.3); color: var(--text-primary); background: rgba(255,61,0,0.04); }
   .chip.active { background: rgba(255, 61, 0, 0.12); border-color: var(--fire); color: var(--text-primary); font-weight: 600; }
-  
+
   .grid-wrap { max-width: 1200px; margin: 0 auto; padding: 2rem 2rem 4rem; }
   .grid-meta { font-size: 13px; color: var(--text-muted); margin-bottom: 1.25rem; }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; }
@@ -117,16 +112,16 @@
   .card h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.4rem; line-height: 1.2; margin-bottom: 0.5rem; color: var(--text-primary); }
   .card-desc { font-size: 13.5px; color: var(--text-secondary); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
   .card-footer { padding: 1rem 1.5rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 10px; pointer-events: none; }
-  
-  .card-footer button { 
-    pointer-events: auto; 
-    background: rgba(255, 255, 255, 0.05); 
-    border: 1px solid rgba(255, 255, 255, 0.08); 
-    color: var(--text-primary); 
-    padding: 6px 14px; 
-    border-radius: var(--radius-sm); 
-    font-size: 12px; 
-    font-weight: 600; 
+
+  .card-footer button {
+    pointer-events: auto;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-primary);
+    padding: 6px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-weight: 600;
     cursor: pointer;
     font-family: 'Inter', sans-serif;
     outline: none;
@@ -138,66 +133,62 @@
     color: #fff;
   }
   .card.completed .card-footer button { background: rgba(0, 137, 123, 0.15); border-color: rgba(0, 137, 123, 0.3); color: #4DB6AC; }
-  
+
   .card-meta-info { display: flex; gap: 12px; }
   .meta-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-muted); }
   .meta-item svg { width: 14px; height: 14px; flex-shrink: 0; stroke: currentColor; }
-  
+
   .overlay { display: none; position: fixed; inset: 0; background: rgba(5,5,6,0.85); z-index: 200; align-items: flex-end; justify-content: center; padding: 0; backdrop-filter: blur(8px); }
   .overlay.open { display: flex; }
   @media (min-width: 640px) { .overlay { align-items: center; padding: 2rem; } }
-  
-  .modal { 
-    background: #121214; 
-    border: 1px solid var(--border); 
-    border-radius: var(--radius-xl) var(--radius-xl) 0 0; 
-    width: 100%; 
-    max-width: 800px; 
-    max-height: 85vh; 
+
+  .modal {
+    background: #121214;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    width: 100%;
+    max-width: 800px;
+    max-height: 85vh;
     display: flex;
     flex-direction: column;
-    overflow: hidden; 
-    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
+    overflow: hidden;
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
   @media (min-width: 640px) { .modal { border-radius: var(--radius-lg); max-height: 80vh; } }
-
   @keyframes slideUp {
     from { transform: translateY(20px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
   }
-
-  .modal-header { 
-    padding: 1.5rem; 
-    border-bottom: 1px solid var(--border); 
-    display: flex; 
-    justify-content: space-between; 
+  .modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
     align-items: flex-start;
     background: #121214;
     z-index: 10;
-    flex-shrink: 0; 
+    flex-shrink: 0;
   }
   .modal-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.6rem; font-weight: 800; line-height: 1.1; }
-  .modal-close { 
-    background: rgba(255,255,255,0.04); 
-    border: 1px solid var(--border); 
-    color: var(--text-secondary); 
-    width: 32px; 
-    height: 32px; 
-    border-radius: 50%; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    cursor: pointer; 
+  .modal-close {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
     transition: all 0.2s ease;
   }
   .modal-close:hover { background: rgba(255,255,255,0.1); color: var(--text-primary); }
-
-  .modal-body { 
-    padding: 1.5rem; 
-    overflow-y: auto; 
+  .modal-body {
+    padding: 1.5rem;
+    overflow-y: auto;
     flex: 1;
   }
-
   .block { background: rgba(255,255,255,0.01); border: 1px solid var(--border); border-radius: var(--radius-md); margin-bottom: 1.5rem; overflow: hidden; }
   .block-header { padding: 1rem 1.25rem; background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
   .block-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.2rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; }
@@ -205,23 +196,34 @@
   .block-title.main { color: var(--fire-glow); }
   .block-title.metcon { color: #4DB6AC; }
   .block-content { padding: 0.5rem 1.25rem; }
-
   .exercise-row { display: flex; gap: 16px; padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,0.03); align-items: flex-start; justify-content: space-between; }
   .exercise-row:last-child { border-bottom: none; }
   .exercise-num { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; color: var(--text-muted); min-width: 20px; }
   .exercise-title-container { display: flex; align-items: flex-start; gap: 12px; flex: 1; max-width: 70%; }
   .exercise-name { font-weight: 600; font-size: 1rem; color: var(--text-primary); }
-  .exercise-name sub { display: block; font-size: 13px; color: var(--text-secondary); font-style: normal; margin-top: 6px; line-height: 1.5; font-family: 'Inter', sans-serif; }
-  .exercise-name sub b { color: var(--text-primary); }
-  .exercise-name .sub-block-title { display: inline-block; background: rgba(255, 61, 0, 0.1); border-left: 2px solid var(--fire); color: var(--fire-glow); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; padding: 1px 6px; border-radius: 0 4px 4px 0; margin-bottom: 6px; font-weight: 700; }
-  
+  .exercise-explain-wrap { display: block; font-size: 13px; color: var(--text-secondary); font-style: normal; margin-top: 6px; line-height: 1.5; font-family: 'Inter', sans-serif; }
+  .exercise-explain-wrap b { color: var(--text-primary); font-weight: 600; }
+
+  .combo-exercise-list { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+  .combo-exercise-item { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 9px 12px; }
+  .combo-tag { font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 0.05em; color: #B39DDB; background: rgba(124,77,255,0.12); padding: 2px 8px; border-radius: 4px; flex-shrink: 0; }
+  .combo-exercise-info { flex: 1; min-width: 160px; display: flex; flex-direction: column; gap: 3px; }
+  .combo-exercise-name { font-weight: 600; font-size: 14px; color: var(--text-primary); line-height: 1.35; }
+  .combo-exercise-reps { font-size: 12.5px; color: var(--gold); font-weight: 600; }
+  .combo-exercise-item .exercise-video-link { margin-top: 0; flex-shrink: 0; }
+
+  .exercise-plain-sub { display: block; }
+
+  .explain-box { display: block; margin-top: 12px; padding: 12px 14px; background: rgba(255,214,0,0.04); border: 1px solid rgba(255,214,0,0.15); border-left: 3px solid var(--gold); border-radius: var(--radius-sm); font-size: 13.5px; color: var(--text-secondary); line-height: 1.6; }
+  .explain-box b { color: var(--text-primary); font-weight: 600; }
+  .explain-box + .explain-box { margin-top: 8px; }
+
   .exercise-video-link { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: rgba(255, 61, 0, 0.08); border: 1px solid rgba(255, 61, 0, 0.2); border-radius: 6px; color: var(--fire-glow); transition: all 0.2s ease; flex-shrink: 0; cursor: pointer; margin-top: 2px; }
   .exercise-video-link:hover { background: var(--fire); color: #fff; border-color: var(--fire); transform: translateY(-1px); }
   .exercise-video-link svg { width: 12px; height: 12px; fill: currentColor; }
-
   .exercise-detail { font-size: 13px; color: var(--text-secondary); text-align: right; max-width: 30%; line-height: 1.4; }
   .exercise-detail b { display: block; color: var(--text-primary); font-weight: 600; font-size: 14px; margin-bottom: 4px; }
-  
+
   .modal-footer { padding: 1.25rem 1.5rem; border-top: 1px solid var(--border); display: flex; gap: 0.75rem; background: #121214; flex-shrink: 0; }
   .btn-complete { flex: 1; background: var(--fire); color: white; border: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 12px 24px; border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s ease; }
   .btn-complete:hover { background: #FF5722; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(255,61,0,0.2); }
@@ -229,9 +231,8 @@
   .btn-complete.done:hover { background: #00796B; box-shadow: 0 4px 12px rgba(0,137,123,0.2); }
   .btn-close-modal { background: rgba(255,255,255,0.04); color: var(--text-secondary); border: 1px solid var(--border); font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 1rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 12px 20px; border-radius: var(--radius-md); cursor: pointer; }
   .btn-close-modal:hover { background: rgba(255,255,255,0.08); color: var(--text-primary); }
-
   .empty { grid-column: 1 / -1; text-align: center; padding: 4rem 1rem; color: var(--text-muted); }
-  
+
   @media (max-width: 640px) {
     nav { padding: 0 1rem; }
     .hero { padding: 2rem 1rem; }
@@ -247,7 +248,6 @@
 </style>
 </head>
 <body>
-
 <nav>
   <a class="nav-brand" href="#">
     <div class="nav-logo-icon">
@@ -257,20 +257,18 @@
   </a>
   <div class="nav-right"><span class="nav-badge" id="nav-badge-level">Cargando...</span></div>
 </nav>
-
 <section class="hero">
   <p class="hero-eyebrow">Performance Hub — Alumna: <span id="student-name-text">Cargando...</span></p>
   <div class="hero-title-container">
     <h1 id="hero-title">Plan de Entrenamiento<br><em id="student-objective-text">Cargando...</em></h1>
   </div>
   <p class="hero-sub" id="hero-subtitle">Plan optimizado y diseñado por el <strong>Coach JP</strong> — Profesor de Educación Física, Especialista en alto rendimiento deportivo.</p>
-  
+
   <div class="hero-stats">
     <div class="stat-pill"><div class="stat-dot"></div><b id="stat-count">0</b>&nbsp;rutinas programadas</div>
     <div class="stat-pill"><div class="stat-dot" style="background:var(--gold)"></div><b>1</b>&nbsp;disciplina activa</div>
     <div class="stat-pill"><div class="stat-dot" style="background:#B39DDB"></div><b id="stat-done">0</b>&nbsp;completadas</div>
   </div>
-
   <div class="mesociclo-box" id="mesociclo-content">
     <h3>Estrategia General del Mesociclo: Hipertrofia y Ganancia de Masa Muscular</h3>
     <p>Este macro-bloque se organiza en un <strong>Mesociclo Pedagógico de 4 Semanas</strong> de alta frecuencia y densidad, diseñado bajo el diagnóstico de que te encontrás en niveles de grasa óptimos para enfocarte de lleno en el aumento de masa muscular limpia y la fuerza localizada de forma directa:</p>
@@ -285,7 +283,6 @@
     </div>
   </div>
 </section>
-
 <div class="filters-wrap">
   <div class="filters-inner">
     <span class="filter-label">Disciplina</span>
@@ -300,12 +297,10 @@
     </div>
   </div>
 </div>
-
 <div class="grid-wrap">
   <p class="grid-meta" id="grid-meta"></p>
   <div class="grid" id="grid"></div>
 </div>
-
 <div class="overlay" id="overlay">
   <div class="modal" id="modal">
     <div class="modal-header">
@@ -327,7 +322,6 @@
     </div>
   </div>
 </div>
-
 <script>
 const ATHLETE_CONFIG = {
   name: "Fernanda Zóttola",
@@ -335,12 +329,10 @@ const ATHLETE_CONFIG = {
   levelBadge: "Intermedio - Regular",
   specialCare: "Alcanzaste niveles de grasa óptimos para centrarte solo en el aumento de masa muscular limpia. Programación configurada para entrenar de 3 a 4 veces por semana. Es clave registrar las marcas reales obtenidas set a set."
 };
-
 document.getElementById('student-name-text').textContent = ATHLETE_CONFIG.name;
 document.getElementById('student-objective-text').textContent = ATHLETE_CONFIG.objective;
 document.getElementById('nav-badge-level').textContent = ATHLETE_CONFIG.levelBadge;
 document.getElementById('student-injury-text').textContent = ATHLETE_CONFIG.specialCare;
-
 const workouts = [
   {
     id: "dia-1",
@@ -452,9 +444,7 @@ const workouts = [
     }
   }
 ];
-
 let completedWorkouts = JSON.parse(localStorage.getItem('jp_completed_v3')) || [];
-
 window.playModalVideo = function(url) {
   const container = document.getElementById('video-player-container');
   const iframe = document.getElementById('modal-video-frame');
@@ -464,13 +454,12 @@ window.playModalVideo = function(url) {
     container.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 };
-
 function renderFilters() {
   const levels = [...new Set(workouts.map(w => w.level))];
   const filterLevelContainer = document.getElementById('filter-level');
-  
+
   filterLevelContainer.innerHTML = '<div class="chip active" data-group="level" data-val="all">Todos los Días</div>';
-  
+
   levels.forEach(lvl => {
     const matchingWorkout = workouts.find(w => w.level === lvl);
     const slug = matchingWorkout ? matchingWorkout.levelSlug : lvl.replace(/\s+/g, '_');
@@ -481,7 +470,7 @@ function renderFilters() {
     chip.textContent = lvl;
     filterLevelContainer.appendChild(chip);
   });
-  
+
   document.querySelectorAll('.chip').forEach(chip => {
     chip.addEventListener('click', function() {
       const group = this.getAttribute('data-group');
@@ -491,32 +480,30 @@ function renderFilters() {
     });
   });
 }
-
 function filterGrid() {
   const discVal = document.querySelector('.chip[data-group="disc"].active').getAttribute('data-val');
   const levelVal = document.querySelector('.chip[data-group="level"].active').getAttribute('data-val');
-  
+
   let filtered = workouts;
-  
+
   if (discVal !== 'all') {
     filtered = filtered.filter(w => w.disciplineSlug === discVal);
   }
   if (levelVal !== 'all') {
     filtered = filtered.filter(w => w.levelSlug === levelVal);
   }
-  
+
   renderGrid(filtered);
 }
-
 function renderGrid(data) {
   const grid = document.getElementById('grid');
   const meta = document.getElementById('grid-meta');
   grid.innerHTML = '';
-  
+
   const realWorkoutsCount = workouts.filter(w => !w.isRest).length;
   document.getElementById('stat-count').textContent = realWorkoutsCount;
   document.getElementById('stat-done').textContent = completedWorkouts.length;
-  
+
   if (data.length === 0) {
     grid.innerHTML = `
       <div class="empty">
@@ -526,13 +513,13 @@ function renderGrid(data) {
     meta.textContent = "Mostrando 0 rutinas";
     return;
   }
-  
+
   meta.textContent = `Mostrando ${data.length} de ${workouts.length} días programados`;
-  
+
   data.forEach(w => {
     const isCompleted = completedWorkouts.includes(w.id);
     const card = document.createElement('div');
-    
+
     card.className = `card ${isCompleted ? 'completed' : ''}`;
     card.setAttribute('data-id', w.id);
     card.innerHTML = `
@@ -559,35 +546,103 @@ function renderGrid(data) {
     card.addEventListener('click', function() {
       openModal(w);
     });
-    
+
     grid.appendChild(card);
   });
 }
+function renderExerciseSub(subHtml) {
+  if (!subHtml) return '';
+  const container = document.createElement('div');
+  container.innerHTML = subHtml;
 
+  const lineGroups = [];
+  let currentLine = [];
+
+  Array.from(container.childNodes).forEach(node => {
+    if (node.nodeType === 1 && node.tagName === 'BR') {
+      if (currentLine.length) { lineGroups.push(currentLine); currentLine = []; }
+    } else {
+      currentLine.push(node);
+    }
+  });
+  if (currentLine.length) lineGroups.push(currentLine);
+
+  const hasTags = lineGroups.some(line => line.some(n => n.nodeType === 1 && n.classList && n.classList.contains('sub-block-title')));
+
+  let out = '';
+
+  if (hasTags && lineGroups.length) {
+    out += '<div class="combo-exercise-list">';
+    lineGroups.forEach(lineNodes => {
+      const wrap = document.createElement('div');
+      lineNodes.forEach(n => wrap.appendChild(n.cloneNode(true)));
+
+      let tag = '';
+      const tagEl = wrap.querySelector('.sub-block-title');
+      if (tagEl) { tag = tagEl.textContent; tagEl.remove(); }
+
+      let videoIconHtml = '';
+      const linkEl = wrap.querySelector('a[onclick]');
+      if (linkEl) {
+        const m = (linkEl.getAttribute('onclick') || '').match(/playModalVideo\('([^']+)'\)/);
+        if (m) {
+          videoIconHtml = `<div onclick="window.playModalVideo('${m[1]}'); event.stopPropagation();" class="exercise-video-link" title="Ver video en reproductor interno"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>`;
+        }
+        linkEl.remove();
+      }
+
+      let name = '', reps = '';
+      const bEl = wrap.querySelector('b');
+      if (bEl) {
+        name = bEl.textContent.replace(/:\s*$/, '').trim();
+        bEl.remove();
+        reps = wrap.innerHTML.replace(/^\s+/, '').trim().replace(/^[.,]\s*/, '');
+      } else {
+        name = wrap.innerHTML.trim();
+      }
+
+      out += `<div class="combo-exercise-item">` +
+        (tag ? `<span class="combo-tag">${tag}</span>` : '') +
+        `<div class="combo-exercise-info"><span class="combo-exercise-name">${name}</span>` +
+        (reps ? `<span class="combo-exercise-reps">${reps}</span>` : '') +
+        `</div>${videoIconHtml}</div>`;
+    });
+    out += '</div>';
+  } else if (lineGroups.length) {
+    const wrap = document.createElement('div');
+    lineGroups.forEach((lineNodes, i) => {
+      lineNodes.forEach(n => wrap.appendChild(n.cloneNode(true)));
+      if (i < lineGroups.length - 1) wrap.appendChild(document.createElement('br'));
+    });
+    out += `<div class="exercise-plain-sub">${wrap.innerHTML}</div>`;
+  }
+
+  return out;
+}
 function openModal(w) {
   if (w.isRest) return;
-  
+
   const overlay = document.getElementById('overlay');
   const title = document.getElementById('modal-title');
   const tags = document.getElementById('modal-tags');
   const bodyContent = document.getElementById('modal-exercises-content');
   const btnComplete = document.getElementById('btn-complete');
-  
+
   const videoContainer = document.getElementById('video-player-container');
   const videoFrame = document.getElementById('modal-video-frame');
   if (videoFrame && videoContainer) {
     videoFrame.src = "";
     videoContainer.style.display = 'none';
   }
-  
+
   title.innerHTML = `${w.title}<br><span style="font-size:14px; font-family:'Inter'; font-weight:400; color:var(--text-secondary);">${w.subtitle}</span>`;
   tags.innerHTML = `
     <span class="tag tag-disc-musculacion">${w.discipline}</span>
     <span class="tag tag-level-avanzado">${w.level}</span>
   `;
-  
+
   let html = '';
-  
+
   const getExerciseRow = (ex, idx) => {
     let videoButtonHtml = '';
     if (ex.video) {
@@ -601,14 +656,14 @@ function openModal(w) {
       <div class="exercise-row">
         <div class="exercise-num">${idx + 1}</div>
         <div class="exercise-title-container">
-          <div class="exercise-name">${ex.name}<sub>${ex.sub}</sub></div>
+          <div class="exercise-name">${ex.name}<div class="exercise-explain-wrap">${renderExerciseSub(ex.sub)}</div></div>
           ${videoButtonHtml}
         </div>
         <div class="exercise-detail"><b>${ex.reps}</b>${ex.detail ? ex.detail : ''}</div>
       </div>
     `;
   };
-  
+
   if (w.warmup && w.warmup.length > 0) {
     html += `
       <div class="block">
@@ -620,7 +675,7 @@ function openModal(w) {
     w.warmup.forEach((ex, idx) => { html += getExerciseRow(ex, idx); });
     html += `</div></div>`;
   }
-  
+
   if (w.main && w.main.length > 0) {
     html += `
       <div class="block">
@@ -632,7 +687,7 @@ function openModal(w) {
     w.main.forEach((ex, idx) => { html += getExerciseRow(ex, idx); });
     html += `</div></div>`;
   }
-  
+
   if (w.metcon && w.metcon.length > 0) {
     html += `
       <div class="block">
@@ -644,7 +699,6 @@ function openModal(w) {
     w.metcon.forEach((ex, idx) => { html += getExerciseRow(ex, idx); });
     html += `</div></div>`;
   }
-
   if (w.technicalAnalysis) {
     html += `
       <div class="block" style="border: 1px dashed rgba(124,77,255,0.3); background: rgba(124,77,255,0.01);">
@@ -659,9 +713,9 @@ function openModal(w) {
       </div>
     `;
   }
-  
+
   bodyContent.innerHTML = html;
-  
+
   if (completedWorkouts.includes(w.id)) {
     btnComplete.textContent = "Sesión Completada ✓";
     btnComplete.classList.add('done');
@@ -669,7 +723,7 @@ function openModal(w) {
     btnComplete.textContent = "Marcar como completado";
     btnComplete.classList.remove('done');
   }
-  
+
   btnComplete.onclick = (e) => {
     e.stopPropagation();
     if (completedWorkouts.includes(w.id)) {
@@ -684,22 +738,19 @@ function openModal(w) {
     localStorage.setItem('jp_completed_v3', JSON.stringify(completedWorkouts));
     filterGrid();
   };
-  
+
   overlay.classList.add('open');
 }
-
 function closeModal() {
   document.getElementById('overlay').classList.remove('open');
   const iframe = document.getElementById('modal-video-frame');
   if (iframe) iframe.src = "";
 }
-
 document.getElementById('modal-close').addEventListener('click', closeModal);
 document.querySelectorAll('.btn-close-modal').forEach(btn => btn.addEventListener('click', closeModal));
 document.getElementById('overlay').addEventListener('click', function(e) {
   if (e.target === this) closeModal();
 });
-
 renderFilters();
 filterGrid();
 </script>
